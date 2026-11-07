@@ -22,7 +22,6 @@ import {
   TrendingUp,
   MessageSquareQuote,
   Eye,
-  Plus,
 } from "lucide-react";
 import { projects } from "@/data/projects";
 import { products } from "@/data/products";
@@ -50,32 +49,10 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#3E3E42] font-poppins selection:bg-[#012A69] selection:text-white">
       {/* =========================================================================
-          HERO SECTION - 100vh Viewport Fit Matching Exact UI Mockup
+          HERO SECTION - Decluttered & Balanced 100vh Layout
           ========================================================================= */}
-      <section className="relative w-full lg:h-[calc(100vh-68px)] lg:max-h-[calc(100vh-68px)] flex flex-col justify-between overflow-hidden bg-white border-b border-gray-100 py-4 sm:py-6 lg:py-4">
+      <section className="relative w-full lg:h-[calc(100vh-68px)] lg:max-h-[calc(100vh-68px)] flex flex-col justify-between bg-white border-b border-gray-100 py-4 sm:py-6 lg:py-5">
         
-        {/* Background Concentric Circular Lines Accent */}
-        <div className="absolute -top-12 right-0 w-[550px] h-[550px] pointer-events-none select-none z-0 opacity-40">
-          <svg
-            viewBox="0 0 500 500"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full"
-          >
-            <circle cx="380" cy="180" r="140" stroke="#CBD5E1" strokeWidth="1" />
-            <circle cx="380" cy="180" r="220" stroke="#E2E8F0" strokeWidth="1" />
-            <circle cx="380" cy="180" r="300" stroke="#F1F5F9" strokeWidth="1" strokeDasharray="4 4" />
-          </svg>
-        </div>
-
-        {/* Bottom-Right Dark Navy Sweeping Corner Shape */}
-        <div className="absolute -bottom-1 -right-1 w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 bg-[#012A69] rounded-tl-[110px] pointer-events-none z-0" />
-
-        {/* Floating Circular Plus Badge */}
-        <div className="hidden xl:flex absolute top-6 right-20 z-20 w-10 h-10 rounded-full border border-gray-300 bg-white/90 backdrop-blur-sm shadow-sm items-center justify-center text-[#012A69] hover:scale-110 transition-transform cursor-pointer">
-          <Plus className="w-4 h-4 stroke-[2]" />
-        </div>
-
         {/* MAIN HERO 2-COLUMN GRID (Fills remaining height) */}
         <div className="max-w-[1320px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex items-center">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center w-full">
@@ -151,68 +128,70 @@ export default function HomePage() {
             </div>
 
             {/* ===================================================================
-                RIGHT COLUMN: Headline, Quote, Metrics Card
+                RIGHT COLUMN: Headline, Quote, Metrics Card (Clean & Decluttered)
                 =================================================================== */}
-            <div className="lg:col-span-6 flex flex-col justify-center text-left py-1 lg:pl-2">
+            <div className="lg:col-span-6 flex flex-col justify-center text-left py-2 lg:pl-4 space-y-3">
               
               {/* Eyebrow: Line + STRATEGY • COMMUNICATION • EXECUTION */}
               <div className="flex items-center gap-2.5">
-                <span className="w-8 h-[2px] bg-[#012A69] rounded-full" />
-                <span className="text-[11px] sm:text-xs font-black tracking-[0.22em] text-[#012A69] uppercase font-proxima">
+                <span className="w-7 h-[2px] bg-[#012A69] rounded-full" />
+                <span className="text-[11px] sm:text-xs font-bold tracking-[0.22em] text-[#012A69] uppercase font-proxima">
                   STRATEGY &bull; COMMUNICATION &bull; EXECUTION
                 </span>
               </div>
 
-              {/* Main Headline: Reduced and Balanced on 2 lines */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.35rem] xl:text-[2.65rem] font-black tracking-tight text-[#012A69] leading-[1.12] mt-2">
+              {/* Main Headline: Clean 2 Lines with Crisp Breathing Room */}
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.4rem] xl:text-[2.7rem] font-black tracking-tight text-[#012A69] leading-[1.14]">
                 Design is not just how it <br className="hidden sm:inline" />
                 <span className="text-[#012A69]">looks. It is what it does.</span>
               </h1>
 
-              {/* Body Paragraph: Concise and Balanced */}
-              <p className="text-xs sm:text-[13px] lg:text-[13.5px] text-[#3E3E42] leading-relaxed max-w-lg font-normal mt-2">
+              {/* Body Paragraph: Concise, High-Trust, and Airy */}
+              <p className="text-xs sm:text-[13.5px] text-gray-500 leading-relaxed max-w-lg font-normal">
                 The goal is not simply to create something that looks good, but to create something
                 that works. Helping ambitious brands clarify their message, command authority, and
                 produce visual communication that drives real results.
               </p>
 
-              {/* Metrics Card: Compact with balanced whitespace */}
-              <div className="mt-3 sm:mt-4 p-2.5 sm:p-3 rounded-xl bg-[#F4F6F9] border border-slate-200/90 shadow-sm max-w-lg">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  <div className="text-center px-1.5">
-                    <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
-                      20+
-                    </span>
-                    <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
-                      Startups Supported
-                    </span>
-                  </div>
+              {/* Metrics Card: Minimalist, Airy & Seamless */}
+              <div className="pt-1">
+                <div className="p-3 sm:p-3.5 rounded-2xl bg-[#F8F9FB] border border-gray-100 max-w-lg shadow-none">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <div className="text-center px-1.5">
+                      <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
+                        20+
+                      </span>
+                      <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                        Startups Supported
+                      </span>
+                    </div>
 
-                  <div className="text-center px-1.5 border-l border-slate-200">
-                    <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
-                      200+
-                    </span>
-                    <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
-                      Young People Trained
-                    </span>
-                  </div>
+                    <div className="text-center px-1.5 border-l border-gray-200">
+                      <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
+                        200+
+                      </span>
+                      <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                        Young People Trained
+                      </span>
+                    </div>
 
-                  <div className="text-center px-1.5 sm:border-l border-slate-200">
-                    <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
-                      10+
-                    </span>
-                    <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
-                      Creative Campaigns
-                    </span>
-                  </div>
+                    <div className="text-center px-1.5 sm:border-l border-gray-200">
+                      <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
+                        10+
+                      </span>
+                      <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                        Creative Campaigns
+                      </span>
+                    </div>
 
-                  <div className="text-center px-1.5 border-l border-slate-200">
-                    <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
-                      70%
-                    </span>
-                    <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
-                      Community Initiatives
-                    </span>
+                    <div className="text-center px-1.5 border-l border-gray-200">
+                      <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
+                        70%
+                      </span>
+                      <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                        Community Initiatives
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
