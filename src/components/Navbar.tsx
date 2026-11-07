@@ -44,7 +44,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md transition-all font-poppins border-b border-gray-100">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[68px] flex items-center justify-between">
         {/* Left: Interlocking Monogram Logo */}
         <Link
           href="/"

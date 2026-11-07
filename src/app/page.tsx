@@ -33,6 +33,8 @@ import { useCart } from "@/context/CartContext";
 import { ProjectModal } from "@/components/ProjectModal";
 import { ProductModal } from "@/components/ProductModal";
 import { VideoModal } from "@/components/VideoModal";
+import { SealBadge } from "@/components/SealBadge";
+import { PartnerLogos } from "@/components/PartnerLogos";
 
 export default function HomePage() {
   const { formatPrice, addToCart, setIsTribeModalOpen } = useCart();
@@ -48,11 +50,12 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-[#3E3E42] font-poppins selection:bg-[#012A69] selection:text-white">
       {/* =========================================================================
-          HERO SECTION - Replicating UI Design with Mharvy's Cutout Image
+          HERO SECTION - 100vh Viewport Fit Matching Exact UI Mockup
           ========================================================================= */}
-      <section className="relative pt-8 pb-16 md:pt-12 md:pb-24 lg:pt-14 lg:pb-28 overflow-hidden bg-white border-b border-gray-100">
-        {/* Background Concentric Circular Lines Accent (as seen in Mockup) */}
-        <div className="absolute -top-10 right-0 w-[550px] h-[550px] pointer-events-none select-none z-0 opacity-40">
+      <section className="relative w-full lg:h-[calc(100vh-68px)] lg:max-h-[calc(100vh-68px)] flex flex-col justify-between overflow-hidden bg-white border-b border-gray-100 py-4 sm:py-6 lg:py-4">
+        
+        {/* Background Concentric Circular Lines Accent */}
+        <div className="absolute -top-12 right-0 w-[550px] h-[550px] pointer-events-none select-none z-0 opacity-40">
           <svg
             viewBox="0 0 500 500"
             fill="none"
@@ -65,123 +68,177 @@ export default function HomePage() {
           </svg>
         </div>
 
-        {/* Floating Circular Plus Badge (Upper Right from Mockup) */}
-        <div className="hidden lg:flex absolute top-16 right-16 xl:right-28 z-20 w-11 h-11 rounded-full border border-gray-300 bg-white/90 backdrop-blur-sm shadow-sm items-center justify-center text-[#012A69] hover:scale-110 transition-transform cursor-pointer">
+        {/* Bottom-Right Dark Navy Sweeping Corner Shape */}
+        <div className="absolute -bottom-1 -right-1 w-36 h-36 sm:w-52 sm:h-52 lg:w-64 lg:h-64 bg-[#012A69] rounded-tl-[160px] pointer-events-none z-0" />
+
+        {/* Floating Circular Plus Badge */}
+        <div className="hidden xl:flex absolute top-6 right-20 z-20 w-10 h-10 rounded-full border border-gray-300 bg-white/90 backdrop-blur-sm shadow-sm items-center justify-center text-[#012A69] hover:scale-110 transition-transform cursor-pointer">
           <Plus className="w-4 h-4 stroke-[2]" />
         </div>
 
-        {/* Bottom-Right Dark Navy Sweeping Wave/Corner (from Mockup) */}
-        <div className="absolute -bottom-1 -right-1 w-44 h-44 sm:w-60 sm:h-60 lg:w-72 lg:h-72 bg-[#012A69] rounded-tl-[160px] pointer-events-none z-0" />
-
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        {/* MAIN HERO 2-COLUMN GRID (Fills remaining height) */}
+        <div className="max-w-[1320px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex-1 flex items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center w-full">
             
             {/* ===================================================================
-                LEFT COLUMN: Mharvy's Cutout Image in Slanted Parallelogram Cards
+                LEFT COLUMN: Mharvy Cutout + Geometric Card + Seal + Bottom CTAs
                 =================================================================== */}
             <div className="lg:col-span-6 flex justify-center lg:justify-start">
-              <div className="relative w-[320px] sm:w-[400px] md:w-[450px] lg:w-[460px] xl:w-[480px] h-[440px] sm:h-[480px] md:h-[520px] lg:h-[530px] flex items-end justify-center">
+              <div className="relative w-[320px] sm:w-[380px] md:w-[430px] lg:w-[440px] xl:w-[470px] h-[360px] sm:h-[420px] md:h-[450px] lg:h-[460px] xl:h-[480px] flex items-end justify-center">
                 
-                {/* 1. Behind: Soft Light Gray Translucent Pill / Parallelogram */}
+                {/* 1. Behind: Soft Light Gray Translucent Parallelogram */}
                 <div
-                  className="absolute bottom-6 left-2 sm:left-4 w-[240px] sm:w-[280px] lg:w-[310px] h-[340px] sm:h-[390px] lg:h-[420px] bg-slate-100/90 border border-slate-200/60 rounded-[32px] shadow-lg -z-10"
+                  className="absolute bottom-10 left-1 sm:left-3 w-[220px] sm:w-[260px] lg:w-[290px] h-[280px] sm:h-[340px] lg:h-[370px] bg-slate-100/90 border border-slate-200/60 rounded-[32px] shadow-lg -z-10"
                   style={{ transform: "skewX(-14deg)" }}
                 />
 
                 {/* 2. Top-Right Outline Parallelogram */}
                 <div
-                  className="absolute top-8 right-6 sm:right-10 lg:right-12 w-[160px] sm:w-[190px] h-[190px] sm:h-[230px] border-2 border-slate-300/80 rounded-[28px] -z-10"
+                  className="absolute top-4 right-4 sm:right-8 w-[140px] sm:w-[170px] h-[160px] sm:h-[200px] border-2 border-slate-300/80 rounded-[28px] -z-10"
                   style={{ transform: "skewX(-14deg)" }}
                 />
 
                 {/* 3. Bottom-Left Outline Parallelogram */}
                 <div
-                  className="absolute bottom-2 -left-2 sm:left-0 w-[120px] sm:w-[140px] h-[130px] sm:h-[150px] border-2 border-slate-300/80 rounded-[22px] -z-10"
+                  className="absolute bottom-2 -left-3 sm:-left-1 w-[100px] sm:w-[125px] h-[110px] sm:h-[130px] border-2 border-slate-300/80 rounded-[20px] -z-10"
                   style={{ transform: "skewX(-14deg)" }}
                 />
 
-                {/* 4. Primary Solid Navy Skewed Card */}
+                {/* 4. Primary Solid Navy Card with Slanted Angles */}
                 <div
-                  className="absolute bottom-4 left-10 sm:left-14 lg:left-16 w-[240px] sm:w-[280px] lg:w-[310px] h-[360px] sm:h-[410px] lg:h-[440px] bg-gradient-to-b from-[#012A69] via-[#012A69] to-[#08285c] rounded-[32px] shadow-2xl shadow-[#012A69]/30 -z-5 overflow-hidden"
+                  className="absolute bottom-0 left-6 sm:left-10 lg:left-12 w-[240px] sm:w-[280px] lg:w-[310px] h-[300px] sm:h-[360px] lg:h-[390px] bg-gradient-to-b from-[#012A69] via-[#012A69] to-[#072454] rounded-[32px] shadow-2xl shadow-[#012A69]/30 -z-5 overflow-visible"
                   style={{ transform: "skewX(-14deg)" }}
                 >
-                  {/* Subtle inner pinstripe sheen */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 rounded-[32px]" />
                 </div>
 
-                {/* 5. Mharvy Cutout Image: Popping out from the top of the navy card! */}
-                <div className="relative z-10 w-full h-[450px] sm:h-[500px] md:h-[540px] lg:h-[550px] flex items-end justify-center pointer-events-none select-none">
+                {/* 5. Mharvy Portrait Cutout (Head pops out above top boundary) */}
+                <div className="relative z-10 w-full h-[380px] sm:h-[440px] md:h-[470px] lg:h-[480px] xl:h-[500px] flex items-end justify-center pointer-events-none select-none">
                   <Image
                     src="/mharvy-hero.png"
                     alt="Chibuike Godwin Marvellous (theCreative Mharvy)"
-                    width={520}
-                    height={580}
+                    width={500}
+                    height={540}
                     className="w-auto h-full object-contain object-bottom drop-shadow-xl"
                     priority
                   />
+                </div>
+
+                {/* 6. Rotating Circular Seal Badge on Mharvy's Right Shoulder */}
+                <div className="absolute bottom-16 sm:bottom-20 right-0 sm:right-2 lg:-right-2 z-20 pointer-events-auto">
+                  <SealBadge size={125} className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] lg:w-[130px] lg:h-[130px]" />
+                </div>
+
+                {/* 7. Embedded Bottom CTAs (Directly on the lower slanted navy shelf) */}
+                <div className="absolute bottom-2 left-0 sm:left-2 z-30 flex items-center gap-4">
+                  <Link
+                    href="/work"
+                    className="px-5 sm:px-6 py-2.5 rounded-full bg-white text-[#012A69] font-bold text-xs uppercase tracking-wider shadow-lg hover:bg-gray-100 flex items-center gap-2 hover:scale-105 transition-all"
+                  >
+                    <span>EXPLORE MY WORK</span>
+                    <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+                  </Link>
+
+                  <Link
+                    href="/contact"
+                    className="text-white hover:text-blue-100 font-bold text-xs uppercase tracking-wider flex items-center gap-1 group transition-colors py-2"
+                  >
+                    <span>START A CONVERSATION</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Link>
                 </div>
               </div>
             </div>
 
             {/* ===================================================================
-                RIGHT COLUMN: Hero Copy & CTA Buttons matching Mockup
+                RIGHT COLUMN: Headline, Quote, Metrics Card
                 =================================================================== */}
-            <div className="lg:col-span-6 flex flex-col space-y-6 text-left">
+            <div className="lg:col-span-6 flex flex-col justify-center text-left py-2">
               
-              {/* Eyebrow: Navy Line + THECREATIVE MHARVY . */}
+              {/* Eyebrow: Line + STRATEGY • COMMUNICATION • EXECUTION */}
               <div className="flex items-center gap-3">
-                <span className="w-8 h-[2px] bg-[#012A69] rounded-full" />
-                <span className="text-xs sm:text-sm font-bold tracking-[0.22em] text-[#012A69] uppercase font-proxima">
-                  THECREATIVE MHARVY .
+                <span className="w-9 h-[2px] bg-[#012A69] rounded-full" />
+                <span className="text-xs sm:text-[13px] font-black tracking-[0.22em] text-[#012A69] uppercase font-proxima">
+                  STRATEGY &bull; COMMUNICATION &bull; EXECUTION
                 </span>
               </div>
 
-              {/* Main Headline: Bold, Italic Grotesk */}
-              <h1 className="text-4xl sm:text-6xl lg:text-[4.25rem] xl:text-[4.75rem] font-black italic tracking-tight text-[#012A69] leading-[1.04]">
-                Building Brands <br />
-                <span className="text-[#012A69]">That Matter</span>
+              {/* Main Headline: "Design is not just how it looks. It is what it does." */}
+              <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] font-black tracking-tight text-[#012A69] leading-[1.08] mt-2 sm:mt-3">
+                Design is not just how it <br className="hidden sm:inline" />
+                <span className="text-[#012A69]">looks. It is what it does.</span>
               </h1>
 
-              {/* Subtitle / Philosophy */}
-              <p className="text-base sm:text-lg lg:text-xl font-normal italic text-[#012A69]/90 mt-1 font-serif">
-                Through Visual Communications Design, Strategy &amp; Advocacy
+              {/* Body Paragraph */}
+              <p className="text-xs sm:text-sm lg:text-[14.5px] text-[#3E3E42] leading-relaxed max-w-xl font-normal mt-2.5 sm:mt-3">
+                The goal is not simply to create something that looks good, but to create something
+                that works. I help you clarify your message, build a stronger brand presence, and
+                produce visual communication that drives real results.
               </p>
 
-              {/* Body Description Text */}
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-xl font-normal font-poppins pt-1">
-                I have supported the growth of more than 20 startups, led grassroots initiatives
-                focused on community development and entrepreneurship, and provide essential digital
-                literacy training to over 20k young people.
-              </p>
+              {/* Metrics Card (4 Columns with Dividers) */}
+              <div className="mt-4 sm:mt-5 p-3.5 sm:p-4 rounded-2xl bg-[#F4F6F9] border border-slate-200/90 shadow-sm max-w-2xl">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-2">
+                  <div className="text-center px-2">
+                    <span className="text-xl sm:text-2xl font-black text-[#012A69] block font-serif-luxury">
+                      20+
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                      Startups Supported
+                    </span>
+                  </div>
 
-              {/* Action Buttons: EXPLORE MY WORK -> & START A CONVERSATION ^ */}
-              <div className="flex flex-wrap items-center gap-6 pt-4">
-                <Link
-                  href="/work"
-                  className="px-8 py-3.5 rounded-lg bg-[#012A69] hover:bg-[#060526] text-white font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-3 shadow-md hover:shadow-xl hover:scale-105 transition-all"
-                >
-                  <span>EXPLORE MY WORK</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                  <div className="text-center px-2 border-l border-slate-200">
+                    <span className="text-xl sm:text-2xl font-black text-[#012A69] block font-serif-luxury">
+                      200+
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                      Young People Trained
+                    </span>
+                  </div>
 
-                <Link
-                  href="/contact"
-                  className="font-bold text-xs sm:text-sm tracking-wider uppercase text-[#012A69] hover:text-[#060526] flex items-center gap-2 group transition-colors py-3.5"
-                >
-                  <span>START A CONVERSATION</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
+                  <div className="text-center px-2 sm:border-l border-slate-200">
+                    <span className="text-xl sm:text-2xl font-black text-[#012A69] block font-serif-luxury">
+                      10+
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                      Creative Campaigns
+                    </span>
+                  </div>
+
+                  <div className="text-center px-2 border-l border-slate-200">
+                    <span className="text-xl sm:text-2xl font-black text-[#012A69] block font-serif-luxury">
+                      70%
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                      Community Initiatives
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              {/* Subtle Trust Micro-Tag */}
-              <div className="pt-4 flex items-center gap-2 text-xs text-gray-500 font-semibold">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span>Available for Brand Strategy, UI/UX Systems &amp; Strategic Advisory</span>
-              </div>
             </div>
 
           </div>
         </div>
+
+        {/* ===================================================================
+            BOTTOM BAR: Trusted By Startups & Brand Logos Strip
+            =================================================================== */}
+        <div className="max-w-[1320px] w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-2 pb-1">
+          {/* Section Divider with Center Text */}
+          <div className="w-full flex items-center gap-3 mb-2">
+            <span className="flex-1 h-[1px] bg-slate-200" />
+            <span className="text-[9.5px] sm:text-[10.5px] font-black tracking-[0.2em] text-[#012A69] uppercase font-proxima whitespace-nowrap">
+              TRUSTED BY STARTUPS, CREATIVE TEAMS AND FORWARD-THINKING BRANDS
+            </span>
+            <span className="flex-1 h-[1px] bg-slate-200" />
+          </div>
+
+          {/* Partner Brand Logos Row */}
+          <PartnerLogos />
+        </div>
+
       </section>
 
       {/* =========================================================================
