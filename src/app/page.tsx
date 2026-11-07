@@ -69,7 +69,7 @@ export default function HomePage() {
         </div>
 
         {/* Bottom-Right Dark Navy Sweeping Corner Shape */}
-        <div className="absolute -bottom-1 -right-1 w-36 h-36 sm:w-52 sm:h-52 lg:w-64 lg:h-64 bg-[#012A69] rounded-tl-[160px] pointer-events-none z-0" />
+        <div className="absolute -bottom-1 -right-1 w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 bg-[#012A69] rounded-tl-[110px] pointer-events-none z-0" />
 
         {/* Floating Circular Plus Badge */}
         <div className="hidden xl:flex absolute top-6 right-20 z-20 w-10 h-10 rounded-full border border-gray-300 bg-white/90 backdrop-blur-sm shadow-sm items-center justify-center text-[#012A69] hover:scale-110 transition-transform cursor-pointer">
@@ -84,41 +84,41 @@ export default function HomePage() {
                 LEFT COLUMN: Mharvy Cutout + Geometric Card + Seal + Bottom CTAs
                 =================================================================== */}
             <div className="lg:col-span-6 flex justify-center lg:justify-start">
-              <div className="relative w-[320px] sm:w-[380px] md:w-[430px] lg:w-[440px] xl:w-[470px] h-[360px] sm:h-[420px] md:h-[450px] lg:h-[460px] xl:h-[480px] flex items-end justify-center">
+              <div className="relative w-[300px] sm:w-[360px] md:w-[400px] lg:w-[420px] xl:w-[450px] h-[340px] sm:h-[390px] md:h-[420px] lg:h-[430px] xl:h-[450px] flex items-end justify-center">
                 
                 {/* 1. Behind: Soft Light Gray Translucent Parallelogram */}
                 <div
-                  className="absolute bottom-10 left-1 sm:left-3 w-[220px] sm:w-[260px] lg:w-[290px] h-[280px] sm:h-[340px] lg:h-[370px] bg-slate-100/90 border border-slate-200/60 rounded-[32px] shadow-lg -z-10"
+                  className="absolute bottom-8 left-1 sm:left-3 w-[210px] sm:w-[250px] lg:w-[280px] h-[260px] sm:h-[310px] lg:h-[340px] bg-slate-100/90 border border-slate-200/60 rounded-[32px] shadow-lg -z-10"
                   style={{ transform: "skewX(-14deg)" }}
                 />
 
                 {/* 2. Top-Right Outline Parallelogram */}
                 <div
-                  className="absolute top-4 right-4 sm:right-8 w-[140px] sm:w-[170px] h-[160px] sm:h-[200px] border-2 border-slate-300/80 rounded-[28px] -z-10"
+                  className="absolute top-2 right-4 sm:right-8 w-[130px] sm:w-[155px] h-[150px] sm:h-[180px] border-2 border-slate-300/80 rounded-[28px] -z-10"
                   style={{ transform: "skewX(-14deg)" }}
                 />
 
                 {/* 3. Bottom-Left Outline Parallelogram */}
                 <div
-                  className="absolute bottom-2 -left-3 sm:-left-1 w-[100px] sm:w-[125px] h-[110px] sm:h-[130px] border-2 border-slate-300/80 rounded-[20px] -z-10"
+                  className="absolute bottom-1 -left-3 sm:-left-1 w-[90px] sm:w-[115px] h-[100px] sm:h-[120px] border-2 border-slate-300/80 rounded-[20px] -z-10"
                   style={{ transform: "skewX(-14deg)" }}
                 />
 
                 {/* 4. Primary Solid Navy Card with Slanted Angles */}
                 <div
-                  className="absolute bottom-0 left-6 sm:left-10 lg:left-12 w-[240px] sm:w-[280px] lg:w-[310px] h-[300px] sm:h-[360px] lg:h-[390px] bg-gradient-to-b from-[#012A69] via-[#012A69] to-[#072454] rounded-[32px] shadow-2xl shadow-[#012A69]/30 -z-5 overflow-visible"
+                  className="absolute bottom-0 left-5 sm:left-8 lg:left-10 w-[230px] sm:w-[265px] lg:w-[295px] h-[280px] sm:h-[330px] lg:h-[360px] bg-gradient-to-b from-[#012A69] via-[#012A69] to-[#072454] rounded-[32px] shadow-2xl shadow-[#012A69]/30 -z-5 overflow-visible"
                   style={{ transform: "skewX(-14deg)" }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 rounded-[32px]" />
                 </div>
 
                 {/* 5. Mharvy Portrait Cutout (Head pops out above top boundary) */}
-                <div className="relative z-10 w-full h-[380px] sm:h-[440px] md:h-[470px] lg:h-[480px] xl:h-[500px] flex items-end justify-center pointer-events-none select-none">
+                <div className="relative z-10 w-full h-[350px] sm:h-[400px] md:h-[430px] lg:h-[440px] xl:h-[460px] flex items-end justify-center pointer-events-none select-none">
                   <Image
                     src="/mharvy-hero.png"
                     alt="Chibuike Godwin Marvellous (theCreative Mharvy)"
-                    width={500}
-                    height={540}
+                    width={480}
+                    height={520}
                     className="w-auto h-full object-contain object-bottom drop-shadow-xl"
                     priority
                   />
@@ -153,64 +153,64 @@ export default function HomePage() {
             {/* ===================================================================
                 RIGHT COLUMN: Headline, Quote, Metrics Card
                 =================================================================== */}
-            <div className="lg:col-span-6 flex flex-col justify-center text-left py-2">
+            <div className="lg:col-span-6 flex flex-col justify-center text-left py-1 lg:pl-2">
               
               {/* Eyebrow: Line + STRATEGY • COMMUNICATION • EXECUTION */}
-              <div className="flex items-center gap-3">
-                <span className="w-9 h-[2px] bg-[#012A69] rounded-full" />
-                <span className="text-xs sm:text-[13px] font-black tracking-[0.22em] text-[#012A69] uppercase font-proxima">
+              <div className="flex items-center gap-2.5">
+                <span className="w-8 h-[2px] bg-[#012A69] rounded-full" />
+                <span className="text-[11px] sm:text-xs font-black tracking-[0.22em] text-[#012A69] uppercase font-proxima">
                   STRATEGY &bull; COMMUNICATION &bull; EXECUTION
                 </span>
               </div>
 
-              {/* Main Headline: "Design is not just how it looks. It is what it does." */}
-              <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] font-black tracking-tight text-[#012A69] leading-[1.08] mt-2 sm:mt-3">
+              {/* Main Headline: Reduced and Balanced on 2 lines */}
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.35rem] xl:text-[2.65rem] font-black tracking-tight text-[#012A69] leading-[1.12] mt-2">
                 Design is not just how it <br className="hidden sm:inline" />
                 <span className="text-[#012A69]">looks. It is what it does.</span>
               </h1>
 
-              {/* Body Paragraph */}
-              <p className="text-xs sm:text-sm lg:text-[14.5px] text-[#3E3E42] leading-relaxed max-w-xl font-normal mt-2.5 sm:mt-3">
+              {/* Body Paragraph: Concise and Balanced */}
+              <p className="text-xs sm:text-[13px] lg:text-[13.5px] text-[#3E3E42] leading-relaxed max-w-lg font-normal mt-2">
                 The goal is not simply to create something that looks good, but to create something
-                that works. I help you clarify your message, build a stronger brand presence, and
+                that works. Helping ambitious brands clarify their message, command authority, and
                 produce visual communication that drives real results.
               </p>
 
-              {/* Metrics Card (4 Columns with Dividers) */}
-              <div className="mt-4 sm:mt-5 p-3.5 sm:p-4 rounded-2xl bg-[#F4F6F9] border border-slate-200/90 shadow-sm max-w-2xl">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-2">
-                  <div className="text-center px-2">
-                    <span className="text-xl sm:text-2xl font-black text-[#012A69] block font-serif-luxury">
+              {/* Metrics Card: Compact with balanced whitespace */}
+              <div className="mt-3 sm:mt-4 p-2.5 sm:p-3 rounded-xl bg-[#F4F6F9] border border-slate-200/90 shadow-sm max-w-lg">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  <div className="text-center px-1.5">
+                    <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
                       20+
                     </span>
-                    <span className="text-[10px] sm:text-[11px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                    <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
                       Startups Supported
                     </span>
                   </div>
 
-                  <div className="text-center px-2 border-l border-slate-200">
-                    <span className="text-xl sm:text-2xl font-black text-[#012A69] block font-serif-luxury">
+                  <div className="text-center px-1.5 border-l border-slate-200">
+                    <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
                       200+
                     </span>
-                    <span className="text-[10px] sm:text-[11px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                    <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
                       Young People Trained
                     </span>
                   </div>
 
-                  <div className="text-center px-2 sm:border-l border-slate-200">
-                    <span className="text-xl sm:text-2xl font-black text-[#012A69] block font-serif-luxury">
+                  <div className="text-center px-1.5 sm:border-l border-slate-200">
+                    <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
                       10+
                     </span>
-                    <span className="text-[10px] sm:text-[11px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                    <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
                       Creative Campaigns
                     </span>
                   </div>
 
-                  <div className="text-center px-2 border-l border-slate-200">
-                    <span className="text-xl sm:text-2xl font-black text-[#012A69] block font-serif-luxury">
+                  <div className="text-center px-1.5 border-l border-slate-200">
+                    <span className="text-lg sm:text-xl font-black text-[#012A69] block font-serif-luxury">
                       70%
                     </span>
-                    <span className="text-[10px] sm:text-[11px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
+                    <span className="text-[9.5px] sm:text-[10px] text-gray-500 font-medium whitespace-nowrap block mt-0.5">
                       Community Initiatives
                     </span>
                   </div>
