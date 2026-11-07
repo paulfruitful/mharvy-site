@@ -22,6 +22,7 @@ import {
   TrendingUp,
   MessageSquareQuote,
   Eye,
+  Plus,
 } from "lucide-react";
 import { projects } from "@/data/projects";
 import { products } from "@/data/products";
@@ -45,91 +46,140 @@ export default function HomePage() {
   const heroVideo = videos[0];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white text-[#3E3E42]">
+    <div className="flex flex-col min-h-screen bg-white text-[#3E3E42] font-poppins selection:bg-[#012A69] selection:text-white">
       {/* =========================================================================
-          HERO SECTION - Payhip Tusk whitePrimary Design
+          HERO SECTION - Replicating UI Design with Mharvy's Cutout Image
           ========================================================================= */}
-      <section className="relative pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-white border-b border-gray-200">
-        {/* Soft Royal Navy Ambient Gradient Circles */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#012A69]/5 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute top-1/2 right-10 w-[350px] h-[350px] bg-blue-500/5 blur-[90px] rounded-full pointer-events-none" />
+      <section className="relative pt-8 pb-16 md:pt-12 md:pb-24 lg:pt-14 lg:pb-28 overflow-hidden bg-white border-b border-gray-100">
+        {/* Background Concentric Circular Lines Accent (as seen in Mockup) */}
+        <div className="absolute -top-10 right-0 w-[550px] h-[550px] pointer-events-none select-none z-0 opacity-40">
+          <svg
+            viewBox="0 0 500 500"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-full"
+          >
+            <circle cx="380" cy="180" r="140" stroke="#CBD5E1" strokeWidth="1" />
+            <circle cx="380" cy="180" r="220" stroke="#E2E8F0" strokeWidth="1" />
+            <circle cx="380" cy="180" r="300" stroke="#F1F5F9" strokeWidth="1" strokeDasharray="4 4" />
+          </svg>
+        </div>
 
-        <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto space-y-8">
-            {/* Status Moniker Pill */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm transition-all hover:border-[#012A69]/30">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#012A69] animate-pulse" />
-              <span className="text-xs font-bold text-[#012A69] tracking-wider uppercase font-proxima">
-                Chibuike Godwin Marvellous • Top 1% of the world&apos;s 1% — theCreative Mharvy
-              </span>
-            </div>
+        {/* Floating Circular Plus Badge (Upper Right from Mockup) */}
+        <div className="hidden lg:flex absolute top-16 right-16 xl:right-28 z-20 w-11 h-11 rounded-full border border-gray-300 bg-white/90 backdrop-blur-sm shadow-sm items-center justify-center text-[#012A69] hover:scale-110 transition-transform cursor-pointer">
+          <Plus className="w-4 h-4 stroke-[2]" />
+        </div>
 
-            {/* Main Title in Fournier Serif */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[#012A69] font-serif-luxury leading-[1.08]">
-              Building Brands <br />
-              <span className="text-[#012A69] italic">That Actually Matter.</span>
-            </h1>
+        {/* Bottom-Right Dark Navy Sweeping Wave/Corner (from Mockup) */}
+        <div className="absolute -bottom-1 -right-1 w-44 h-44 sm:w-60 sm:h-60 lg:w-72 lg:h-72 bg-[#012A69] rounded-tl-[160px] pointer-events-none z-0" />
 
-            {/* Subtitle / Philosophy */}
-            <p className="text-base sm:text-xl text-[#3E3E42] max-w-2xl leading-relaxed font-normal font-poppins">
-              Helping founders, startups, and changemakers clarify ideas, structure messaging,
-              and design high-trust visual identity systems that drive measurable commercial results.
-            </p>
+        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            {/* ===================================================================
+                LEFT COLUMN: Mharvy's Cutout Image in Slanted Parallelogram Cards
+                =================================================================== */}
+            <div className="lg:col-span-6 flex justify-center lg:justify-start">
+              <div className="relative w-[320px] sm:w-[400px] md:w-[450px] lg:w-[460px] xl:w-[480px] h-[440px] sm:h-[480px] md:h-[520px] lg:h-[530px] flex items-end justify-center">
+                
+                {/* 1. Behind: Soft Light Gray Translucent Pill / Parallelogram */}
+                <div
+                  className="absolute bottom-6 left-2 sm:left-4 w-[240px] sm:w-[280px] lg:w-[310px] h-[340px] sm:h-[390px] lg:h-[420px] bg-slate-100/90 border border-slate-200/60 rounded-[32px] shadow-lg -z-10"
+                  style={{ transform: "skewX(-14deg)" }}
+                />
 
-            {/* Quote Pill */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F9FA] border border-[#DDDDDD] max-w-xl text-xs sm:text-sm text-[#3E3E42] font-serif italic shadow-sm">
-              &ldquo;Design is not just how it looks. It is what it does.&rdquo;
-              <span className="block text-[11px] font-sans not-italic text-[#012A69] font-semibold mt-1">
-                — Chibuike Godwin Marvellous (theCreative Mharvy)
-              </span>
-            </div>
+                {/* 2. Top-Right Outline Parallelogram */}
+                <div
+                  className="absolute top-8 right-6 sm:right-10 lg:right-12 w-[160px] sm:w-[190px] h-[190px] sm:h-[230px] border-2 border-slate-300/80 rounded-[28px] -z-10"
+                  style={{ transform: "skewX(-14deg)" }}
+                />
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-              <Link
-                href="/work"
-                className="px-8 py-3.5 rounded-lg btn-mharvy-primary font-bold text-sm flex items-center gap-2 shadow-md"
-              >
-                <span>Explore Selected Work</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+                {/* 3. Bottom-Left Outline Parallelogram */}
+                <div
+                  className="absolute bottom-2 -left-2 sm:left-0 w-[120px] sm:w-[140px] h-[130px] sm:h-[150px] border-2 border-slate-300/80 rounded-[22px] -z-10"
+                  style={{ transform: "skewX(-14deg)" }}
+                />
 
-              <Link
-                href="/shop"
-                className="px-7 py-3.5 rounded-lg btn-mharvy-secondary font-semibold text-sm flex items-center gap-2 shadow-sm"
-              >
-                <ShoppingBag className="w-4 h-4 text-[#012A69]" />
-                <span>Shop Digital Resources</span>
-              </Link>
+                {/* 4. Primary Solid Navy Skewed Card */}
+                <div
+                  className="absolute bottom-4 left-10 sm:left-14 lg:left-16 w-[240px] sm:w-[280px] lg:w-[310px] h-[360px] sm:h-[410px] lg:h-[440px] bg-gradient-to-b from-[#012A69] via-[#012A69] to-[#08285c] rounded-[32px] shadow-2xl shadow-[#012A69]/30 -z-5 overflow-hidden"
+                  style={{ transform: "skewX(-14deg)" }}
+                >
+                  {/* Subtle inner pinstripe sheen */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10" />
+                </div>
 
-              <button
-                onClick={() => setIsTribeModalOpen(true)}
-                className="px-6 py-3.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#012A69] font-semibold text-sm border border-blue-200 flex items-center gap-2 transition-all"
-              >
-                <Sparkles className="w-4 h-4 text-[#012A69]" />
-                <span>Join The Tribe</span>
-              </button>
-            </div>
-
-            {/* Metrics Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 pt-10 border-t border-gray-200 w-full max-w-3xl">
-              <div className="flex flex-col items-center">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#012A69] font-serif-luxury">100+</span>
-                <span className="text-xs text-gray-500 uppercase tracking-wider mt-1 font-semibold">Brands Designed</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#012A69] font-serif-luxury">10k+</span>
-                <span className="text-xs text-gray-500 uppercase tracking-wider mt-1 font-semibold">Community Learners</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#012A69] font-serif-luxury">7+</span>
-                <span className="text-xs text-gray-500 uppercase tracking-wider mt-1 font-semibold">Years Experience</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#012A69] font-serif-luxury">Top 1%</span>
-                <span className="text-xs text-gray-500 uppercase tracking-wider mt-1 font-semibold">Global Positioning</span>
+                {/* 5. Mharvy Cutout Image: Popping out from the top of the navy card! */}
+                <div className="relative z-10 w-full h-[450px] sm:h-[500px] md:h-[540px] lg:h-[550px] flex items-end justify-center pointer-events-none select-none">
+                  <Image
+                    src="/mharvy-hero.png"
+                    alt="Chibuike Godwin Marvellous (theCreative Mharvy)"
+                    width={520}
+                    height={580}
+                    className="w-auto h-full object-contain object-bottom drop-shadow-xl"
+                    priority
+                  />
+                </div>
               </div>
             </div>
+
+            {/* ===================================================================
+                RIGHT COLUMN: Hero Copy & CTA Buttons matching Mockup
+                =================================================================== */}
+            <div className="lg:col-span-6 flex flex-col space-y-6 text-left">
+              
+              {/* Eyebrow: Navy Line + THECREATIVE MHARVY . */}
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-[2px] bg-[#012A69] rounded-full" />
+                <span className="text-xs sm:text-sm font-bold tracking-[0.22em] text-[#012A69] uppercase font-proxima">
+                  THECREATIVE MHARVY .
+                </span>
+              </div>
+
+              {/* Main Headline: Bold, Italic Grotesk */}
+              <h1 className="text-4xl sm:text-6xl lg:text-[4.25rem] xl:text-[4.75rem] font-black italic tracking-tight text-[#012A69] leading-[1.04]">
+                Building Brands <br />
+                <span className="text-[#012A69]">That Matter</span>
+              </h1>
+
+              {/* Subtitle / Philosophy */}
+              <p className="text-base sm:text-lg lg:text-xl font-normal italic text-[#012A69]/90 mt-1 font-serif">
+                Through Visual Communications Design, Strategy &amp; Advocacy
+              </p>
+
+              {/* Body Description Text */}
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-xl font-normal font-poppins pt-1">
+                I have supported the growth of more than 20 startups, led grassroots initiatives
+                focused on community development and entrepreneurship, and provide essential digital
+                literacy training to over 20k young people.
+              </p>
+
+              {/* Action Buttons: EXPLORE MY WORK -> & START A CONVERSATION ^ */}
+              <div className="flex flex-wrap items-center gap-6 pt-4">
+                <Link
+                  href="/work"
+                  className="px-8 py-3.5 rounded-lg bg-[#012A69] hover:bg-[#060526] text-white font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-3 shadow-md hover:shadow-xl hover:scale-105 transition-all"
+                >
+                  <span>EXPLORE MY WORK</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <Link
+                  href="/contact"
+                  className="font-bold text-xs sm:text-sm tracking-wider uppercase text-[#012A69] hover:text-[#060526] flex items-center gap-2 group transition-colors py-3.5"
+                >
+                  <span>START A CONVERSATION</span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </Link>
+              </div>
+
+              {/* Subtle Trust Micro-Tag */}
+              <div className="pt-4 flex items-center gap-2 text-xs text-gray-500 font-semibold">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span>Available for Brand Strategy, UI/UX Systems &amp; Strategic Advisory</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -246,7 +296,7 @@ export default function HomePage() {
                   </div>
 
                   <div className="z-10">
-                    <span className="text-[10px] uppercase tracking-wider font-bold text-white/80">
+                    <span className="text-[10px] uppercase tracking-wider font-bold text-white/80 font-proxima">
                       {product.category}
                     </span>
                     <h3 className="text-white font-bold text-base line-clamp-2 mt-1 drop-shadow-sm font-poppins">
@@ -368,7 +418,7 @@ export default function HomePage() {
                   </div>
 
                   <div className="z-10">
-                    <span className="text-xs uppercase font-bold tracking-widest text-white/90">
+                    <span className="text-xs uppercase font-bold tracking-widest text-white/90 font-proxima">
                       Client: {project.client}
                     </span>
                     <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-1 font-serif-luxury drop-shadow-sm">
