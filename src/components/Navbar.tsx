@@ -1,12 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
-  Search,
-  User,
   ShoppingBag,
   Menu,
   X,
@@ -16,212 +14,161 @@ import { useCart } from "@/context/CartContext";
 
 export function Navbar() {
   const pathname = usePathname();
-  const { cartCount, setIsCartOpen, setIsTribeModalOpen } = useCart();
+  const { cartCount, setIsCartOpen } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+
+  const isHome = pathname === "/";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Contact", href: "/contact" },
-    { name: "Work", href: "/work" },
-    { name: "Shop", href: "/shop" },
-    { name: "Blog", href: "/blog" },
-    { name: "Watch", href: "/watch" },
+    { name: "Selected Work", href: "/work" },
+    { name: "Capabilities", href: "/services" },
+    { name: "Field Notes", href: "/blog" },
+    { name: "The Store", href: "/shop" },
+    { name: "Broadcasts", href: "/watch" },
+    { name: "Inquiries", href: "/contact" },
   ];
 
-  const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
-  };
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      window.location.href = `/blog?q=${encodeURIComponent(searchQuery.trim())}`;
-    }
-  };
+  const isTransparent = isHome && !scrolled;
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md transition-all font-poppins border-b border-gray-100">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[68px] flex items-center justify-between">
-        {/* Left: Interlocking Monogram Logo */}
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isTransparent
+          ? "bg-transparent border-b border-white/10"
+          : "bg-black/95 backdrop-blur-md border-b border-white/15 shadow-2xl"
+      }`}
+    >
+      <div className="relative max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-14 h-16 sm:h-20 flex items-center justify-between">
+        
+        {/* Left: Vintage Monogram Seal & Classic Editorial Wordmark */}
         <Link
           href="/"
-          className="flex items-center gap-2 transition-transform hover:scale-105"
-          aria-label="theCreative Mharvy Home"
+          className="group flex items-center gap-3.5 transition-transform hover:opacity-85"
+          aria-label="theCreative Mharvy — Home"
         >
-          <div className="relative w-12 h-8 flex items-center justify-center">
+          <div className="relative w-9 sm:w-11 h-6 sm:h-7 flex items-center justify-center">
             <Image
-              src="/mharvy-monogram.png"
-              alt="Mharvy Logo"
-              width={48}
-              height={30}
-              className="object-contain"
+              src="/mharvy-monogram-white.png"
+              alt="theCreative Mharvy"
+              fill
+              className="object-contain filter transition-all drop-shadow-[0_2px_8px_rgba(255,255,255,0.25)]"
               priority
             />
           </div>
+
+          <div className="flex flex-col">
+            <span className="font-serif-luxury italic text-sm sm:text-base text-white tracking-wide leading-none">
+              theCreative Mharvy
+            </span>
+            <span className="text-[9px] uppercase tracking-[0.28em] text-white/40 font-sans mt-0.5 leading-none">
+              Edition 2026
+            </span>
+          </div>
         </Link>
 
-        {/* Center: Main Navigation Links matching UI mockup */}
-        <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+        {/* Center: Classic Vintage Editorial Navigation */}
+        <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
           {navLinks.map((link) => {
-            const active = isActive(link.href);
+            const isActive = pathname === link.href;
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm tracking-tight transition-colors relative ${
-                  active
-                    ? "font-bold text-[#012A69]"
-                    : "font-semibold text-[#012A69]/85 hover:text-[#012A69]"
+                className={`text-[12px] uppercase tracking-[0.24em] font-sans transition-all duration-300 relative group py-1 ${
+                  isActive ? "text-white font-medium" : "text-white/60 hover:text-white"
                 }`}
               >
-                {link.name}
+                <span>{link.name}</span>
+                {/* Vintage Hairline Underline Indicator */}
+                <span
+                  className={`absolute bottom-0 left-0 right-0 h-[1px] bg-white transition-all duration-300 origin-left ${
+                    isActive ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-60"
+                  }`}
+                />
               </Link>
             );
           })}
         </nav>
 
-        {/* Right: Search, User, Cart, and 'Join My Tribe' Button */}
-        <div className="hidden sm:flex items-center gap-5">
-          {/* Search Icon */}
-          <button
-            onClick={() => setSearchOpen(!searchOpen)}
-            className="p-1.5 text-[#012A69] hover:text-[#060526] hover:scale-110 transition-transform"
-            aria-label="Search"
-          >
-            <Search className="w-5 h-5 stroke-[2.2]" />
-          </button>
-
-          {/* User Profile Icon */}
-          <button
-            onClick={() => setIsTribeModalOpen(true)}
-            className="p-1.5 text-[#012A69] hover:text-[#060526] hover:scale-110 transition-transform"
-            aria-label="User Account"
-          >
-            <User className="w-5 h-5 stroke-[2.2]" />
-          </button>
-
-          {/* Shopping Bag Icon with Cart Count */}
+        {/* Right: Vintage Inquiries Action & Bag */}
+        <div className="flex items-center gap-4 sm:gap-6">
+          
+          {/* Shopping Bag Icon */}
           <button
             onClick={() => setIsCartOpen(true)}
-            className="p-1.5 text-[#012A69] hover:text-[#060526] hover:scale-110 transition-transform relative"
+            className="relative p-2 text-white/60 hover:text-white transition-colors duration-200"
             aria-label="Shopping Cart"
           >
-            <ShoppingBag className="w-5 h-5 stroke-[2.2]" />
+            <ShoppingBag className="w-4 h-4 stroke-[1.5]" />
             {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-[#FC576B] text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+              <span className="absolute top-1 right-1 w-3.5 h-3.5 bg-white text-black text-[9px] font-bold rounded-full flex items-center justify-center">
                 {cartCount}
               </span>
             )}
           </button>
 
-          {/* CTA: Join My Tribe */}
-          <button
-            onClick={() => setIsTribeModalOpen(true)}
-            className="ml-2 px-5 py-2.5 rounded-lg bg-[#012A69] hover:bg-[#060526] text-white font-bold text-xs sm:text-sm tracking-normal transition-all shadow-sm hover:shadow-md hover:scale-105"
+          {/* Classic Vintage Rectangular Action Button */}
+          <Link
+            href="/contact"
+            className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 border border-white/40 hover:border-white text-white hover:bg-white hover:text-black text-[11px] font-semibold tracking-[0.22em] uppercase transition-all duration-300 font-sans group shadow-sm"
           >
-            Join My Tribe
-          </button>
-        </div>
+            <span>Start a Conversation</span>
+            <ArrowRight className="w-3 h-3 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
 
-        {/* Mobile Hamburger Button */}
-        <div className="flex sm:hidden items-center gap-3">
-          <button
-            onClick={() => setIsCartOpen(true)}
-            className="p-2 text-[#012A69] relative"
-            aria-label="Cart"
-          >
-            <ShoppingBag className="w-5 h-5 stroke-[2.2]" />
-            {cartCount > 0 && (
-              <span className="absolute top-0 right-0 w-4 h-4 bg-[#FC576B] text-white text-[10px] font-bold rounded-full flex items-center justify-center">
-                {cartCount}
-              </span>
-            )}
-          </button>
-
+          {/* Mobile Hamburger Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#012A69] hover:bg-gray-100 rounded-lg transition-colors"
-            aria-label="Toggle Navigation"
+            className="p-2 text-white/70 hover:text-white lg:hidden transition-colors"
+            aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
+
         </div>
+
       </div>
 
-      {/* Search Input Bar (Dropdown) */}
-      {searchOpen && (
-        <div className="border-t border-gray-100 bg-white py-3 px-4 shadow-sm animate-in slide-in-from-top-2 duration-150">
-          <form
-            onSubmit={handleSearchSubmit}
-            className="max-w-[1320px] mx-auto flex items-center gap-3"
-          >
-            <Search className="w-4 h-4 text-gray-400" />
-            <input
-              type="text"
-              autoFocus
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search guides, articles, case studies & toolkits..."
-              className="flex-1 text-xs sm:text-sm text-[#012A69] placeholder:text-gray-400 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="px-3.5 py-1.5 rounded-md bg-[#012A69] text-white text-xs font-bold"
-            >
-              Search
-            </button>
-            <button
-              type="button"
-              onClick={() => setSearchOpen(false)}
-              className="text-gray-400 hover:text-gray-600 text-xs font-semibold"
-            >
-              Cancel
-            </button>
-          </form>
-        </div>
-      )}
-
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="sm:hidden border-t border-gray-100 bg-white px-4 pt-3 pb-6 space-y-3 shadow-lg">
-          <div className="flex flex-col gap-1">
+        <div className="lg:hidden border-t border-white/10 bg-black/98 backdrop-blur-2xl px-6 py-8 space-y-6 shadow-2xl">
+          <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`px-3 py-2.5 rounded-lg text-sm font-bold transition-colors ${
-                  isActive(link.href)
-                    ? "bg-blue-50 text-[#012A69]"
-                    : "text-gray-700 hover:bg-gray-50"
-                }`}
+                className="py-2.5 text-sm uppercase tracking-[0.2em] text-white/70 hover:text-white flex items-center justify-between border-b border-white/5 font-sans"
               >
-                {link.name}
+                <span>{link.name}</span>
+                <ArrowRight className="w-3.5 h-3.5 opacity-50" />
               </Link>
             ))}
-            <Link
-              href="/services"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 rounded-lg text-sm font-bold text-gray-700 hover:bg-gray-50"
-            >
-              Services
-            </Link>
           </div>
 
-          <div className="pt-3 border-t border-gray-100 space-y-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                setIsTribeModalOpen(true);
-              }}
-              className="w-full py-3 rounded-lg bg-[#012A69] text-white font-bold text-xs uppercase tracking-wider shadow-sm flex items-center justify-center gap-2"
+          <div className="pt-3">
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3.5 border border-white/60 hover:border-white text-white hover:bg-white hover:text-black text-xs font-semibold uppercase tracking-[0.22em] transition-all flex items-center justify-center gap-2 font-sans"
             >
-              <span>Join My Tribe</span>
+              <span>Start a Conversation</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </Link>
           </div>
         </div>
       )}

@@ -7,6 +7,7 @@ import { CartDrawer } from "@/components/CartDrawer";
 import { TribeModal } from "@/components/TribeModal";
 import { CookieBanner } from "@/components/CookieBanner";
 import { Toast } from "@/components/Toast";
+import { SiteLoader } from "@/components/SiteLoader";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mharvy.com.ng"),
@@ -72,8 +73,9 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://use.typekit.net/hit1uew.css" />
         <link rel="stylesheet" href="https://use.typekit.net/nax3vxi.css" />
       </head>
-      <body className="min-h-full flex flex-col bg-white text-[#3E3E42] font-sans selection:bg-[#012A69] selection:text-white">
+      <body className="min-h-full flex flex-col bg-black text-[#F5F2EB] font-sans selection:bg-[#C59B27] selection:text-black">
         <CartProvider>
+          <SiteLoader />
           <Navbar />
           <main className="flex-1 w-full">{children}</main>
           <Footer />

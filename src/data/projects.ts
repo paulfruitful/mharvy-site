@@ -2,20 +2,156 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "iyd-tfaai-conference-2026",
+    slug: "iyd-tfaai-conference-2026",
+    title: "International Youth Day Conference (IYD26) & The Future Awards Africa Independent",
+    client: "IYD26 & The Future Awards Africa Independent (TFAAi)",
+    year: "2026",
+    category: "Event & Conference",
+    tagline: "End-to-end creative direction, tech deployments, and official website architecture for over 1,200 attendees.",
+    description: "Led the communications strategy and complete creative direction for IYD26 and TFAAi in Abia, implementing the core tech deployments and official websites.",
+    fullStory: [
+      "The International Youth Day Conference and The Future Awards Africa Independent (TFAAi) represents one of the premier gatherings of youthful excellence and civic leadership in Eastern Nigeria.",
+      "As Communications Strategist & Creative Design Lead, I spearheaded the complete creative direction, communications strategy, and official web engineering for the gathering, recording over 1,200 attendees.",
+      "Beyond visual assets, we engineered the event's official digital presence and website architecture to ensure seamless registration, program dissemination, and partner visibility.",
+      "The resulting campaign strengthened stakeholder alignment, community participation, and high-prestige award presentation."
+    ],
+    challenge: "Integrating multi-organization award criteria and large-scale conference communications under one cohesive digital and spatial system.",
+    solution: "Engineered official web infrastructure, structured editorial messaging, and a commanding visual identity across digital, print, and stage collateral.",
+    impactMetrics: [
+      "1,200+ verified conference & award attendees",
+      "Full digital platform & official website deployment",
+      "Unified 10+ partner and stakeholder coalitions"
+    ],
+    deliverables: [
+      "Official Event Website & Registration Architecture",
+      "Award Identity System & Spatial Stage Design",
+      "Program Brochures & Digital Content Architecture",
+      "Multi-channel Stakeholder Communications Kit"
+    ],
+    tags: ["Communications Strategy", "Creative Direction", "Web Architecture", "Youth Leadership"],
+    coverGradient: "from-purple-500/20 via-indigo-600/20 to-black",
+    badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+    accentColor: "#a855f7",
+    featured: true
+  },
+  {
+    id: "download-tech-event-2025",
+    slug: "download-tech-event-2025",
+    title: "Download Tech Event 2025",
+    client: "Download Tech Initiative / Nnewi Tech Ecosystem",
+    year: "2025",
+    category: "Event & Conference",
+    tagline: "End-to-end creative direction and communications strategy for premier tech gathering of 1,500+ attendees in Nnewi.",
+    description: "Led the visual identity and communications strategy across digital, print, and on-site touchpoints, attracting 1,500+ engineers, founders, and leaders.",
+    fullStory: [
+      "Nnewi, renowned as an industrial powerhouse, is rapidly emerging as a hub for engineering talent and hardware-software innovation.",
+      "As Lead Designer & Communications Strategist for the Download Tech Event 2025, I defined and deployed the visual identity and narrative architecture across digital, print, and on-site spaces.",
+      "The conference drew over 1,500 attendees, providing a world-class platform for technology keynotes, startup showcases, and institutional partnerships.",
+      "Every touchpoint—from stage screens to developer passes and social campaign graphics—was designed to reflect international engineering rigor."
+    ],
+    challenge: "Translating heavy manufacturing heritage into a futuristic digital conference identity that attracts developers and corporate investors.",
+    solution: "Designed a clean, modular identity system emphasizing circuit precision, bold typography, and cohesive stakeholder communications.",
+    impactMetrics: [
+      "1,500+ registered tech builders and professionals",
+      "Unified digital, print, and spatial stage materials",
+      "Featured by regional broadcast media and technology publishers"
+    ],
+    deliverables: [
+      "Full Summit Visual Identity & Brand System",
+      "Digital Campaign Graphics & Content Architecture",
+      "Stage Screens, Spatial Banners & Signage",
+      "Developer Badges & Program Collateral"
+    ],
+    tags: ["Technology Event", "Communications Strategy", "Creative Direction", "Community Architecture"],
+    coverGradient: "from-blue-500/20 via-indigo-600/20 to-black",
+    badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+    accentColor: "#3b82f6",
+    featured: true
+  },
+  {
+    id: "the-pivot-conference",
+    slug: "the-pivot-conference",
+    title: "The Pivot Conference 3.0",
+    client: "The Pivot Network",
+    year: "2025",
+    category: "Event & Conference",
+    tagline: "Complete creative direction and visual storytelling for over 3,000 attendees in Awka, Nigeria.",
+    description: "Defined and executed a cohesive visual identity across all touchpoints, delivering high-impact creative assets within tight production timelines.",
+    fullStory: [
+      "The Pivot Conference 3.0 in Awka was envisioned as a catalyst for professional transformation, digital career transition, and leadership development.",
+      "As Lead Designer, I took charge of the complete creative direction across all touchpoints—recording an astounding 3,000+ in attendance.",
+      "Working within strict production deadlines, our team developed and deployed stage backdrops, delegate workbooks, registration portals, and digital video reels without compromising premium brand standards.",
+      "The visual storytelling generated massive audience engagement and established The Pivot Conference as a benchmark for professional conferences in Eastern Nigeria."
+    ],
+    challenge: "Delivering massive-scale event branding and spatial collateral for 3,000+ attendees under aggressive production timelines.",
+    solution: "Built a rapid, modular visual system built around purposeful kinetic typography, high-contrast imagery, and structured delegate pathways.",
+    impactMetrics: [
+      "3,000+ confirmed attendees in Awka",
+      "Complete visual identity across 25+ print & digital deliverables",
+      "High audience recall and social engagement across the region"
+    ],
+    deliverables: [
+      "Master Visual Identity & Guidelines",
+      "Spatial Stage Backdrops & Venue Direction",
+      "Delegate Program Books & Digital Assets",
+      "Campaign Motion Graphics & Social Architecture"
+    ],
+    tags: ["Creative Direction", "Visual Storytelling", "Event Branding", "Large Scale Conference"],
+    coverGradient: "from-amber-500/20 via-orange-600/20 to-black",
+    badgeColor: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+    accentColor: "#f59e0b",
+    featured: true
+  },
+  {
+    id: "ircvac-conference",
+    slug: "ircvac-conference",
+    title: "International Road Crash Victims Africa Conference (IRCVAC)",
+    client: "IRCVAC Initiative / Continental Road Safety Coalition",
+    year: "2025",
+    category: "Advocacy & Social Impact",
+    tagline: "Key visual communication, event branding, and official conference publication for policymakers across Africa.",
+    description: "Delivered key visual communication, official conference brochures, and stage branding for delegates, ministers, and safety advocates from across Africa and beyond.",
+    fullStory: [
+      "Road safety advocacy requires solemnity, human dignity, and authoritative policy weight. The International Road Crash Victims Africa Conference (IRCVAC) convened government officials, victim representatives, and international observers in Abuja.",
+      "As Creative Design Lead, I delivered key visual communication assets and event branding across all stages of the conference experience.",
+      "Deliverables included the master identity mark, delegate brochures, stage backdrops, and policy documentation that represented 14 African coalitions with institutional polish.",
+      "The conference successfully catalyzed continental policy dialogues and memorial protocols."
+    ],
+    challenge: "Balancing solemn victim remembrance with actionable legislative urgency for international policymakers.",
+    solution: "Designed a dignified, high-authority visual language featuring deep slate tones, stark warning amber, and immaculate typographic publication standards.",
+    impactMetrics: [
+      "Pan-African attendance from policymakers and global coalitions",
+      "Produced official commemorative conference brochure & publications",
+      "Adopted as official visual benchmark for ongoing safety forums"
+    ],
+    deliverables: [
+      "Official Conference Brochure & Publications",
+      "Event-Day Banners & Spatial Branding Suite",
+      "Identity System & Stakeholder Presentation Assets",
+      "Press Wall & Stage Backdrop Architecture"
+    ],
+    tags: ["Advocacy Branding", "Publication Design", "Policy Conference", "Pan-African"],
+    coverGradient: "from-red-500/20 via-amber-600/20 to-black",
+    badgeColor: "bg-red-500/10 text-red-400 border-red-500/20",
+    accentColor: "#ef4444",
+    featured: true
+  },
+  {
     id: "buyone-app-experience",
     slug: "buyone-app-experience",
-    title: "Designing the BuyOne App Experience: My Creative Journey",
+    title: "BuyOne App — Multi-Merchant Commerce Experience",
     client: "BuyOne Technologies",
     year: "2024",
     category: "UI/UX & App",
-    tagline: "Bridging seamless multi-merchant commerce and intuitive mobile payments for everyday Africans.",
-    description: "An end-to-end product design and creative strategy engagement for BuyOne—transforming a complex multi-vendor marketplace into a fast, human-centered mobile experience.",
+    tagline: "End-to-end product design, UX ergonomics, and checkout architecture for modern African mobile commerce.",
+    description: "Designed a human-centered mobile app experience for BuyOne—transforming multi-vendor catalog browsing and payment confirmation into a frictionless journey.",
     fullStory: [
       "In modern African commerce, trust and speed are the two defining currencies. BuyOne was built to eliminate friction for everyday shoppers, market merchants, and independent creators.",
-      "As Lead Creative Strategist & UI/UX Designer, I spearheaded the complete product experience—from user journey mapping and wireframing to designing high-fidelity design systems, micro-interactions, and the checkout architecture.",
+      "As Lead Creative Strategist & UI/UX Designer, I spearheaded the complete product experience—from user journey mapping and wireframing to designing high-fidelity design systems, micro-interactions, and checkout architecture.",
       "The result was an ultra-responsive interface with rapid search, low-data consumption mode, instant settlement feedback, and an accessible interface that reduced checkout drop-offs significantly."
     ],
-    challenge: "Traditional e-commerce platforms struggle with high transaction drop-offs due to complex navigation, bandwidth limitations, and fragmented checkout flows.",
+    challenge: "Traditional e-commerce platforms struggle with high transaction drop-offs due to complex navigation and ambiguous checkout flows.",
     solution: "Designed a lightweight, modular design system with one-thumb ergonomic navigation, unified multi-vendor cart, and instant visual verification states.",
     impactMetrics: [
       "42% decrease in cart abandonment during pilot beta",
@@ -35,36 +171,37 @@ export const projects: Project[] = [
     featured: true
   },
   {
-    id: "ircvac-conference",
-    slug: "ircvac-conference",
-    title: "African Road Crash Victims Conference (IRCVAC)",
-    client: "IRCVAC Initiative / Road Safety Advocacy",
+    id: "vision-incubation-hub-rebuild",
+    slug: "vision-incubation-hub-rebuild",
+    title: "Vision Incubation Hub — Strategic Brand Rebuild",
+    client: "Vision Incubation Hub",
     year: "2024",
-    category: "Advocacy & Social Impact",
-    tagline: "Giving a visual voice to road crash advocacy, remembrance, and systemic transportation policy reform.",
-    description: "Full brand identity, visual communication architecture, and summit collateral for a landmark pan-African advocacy conference.",
+    category: "Brand Identity",
+    tagline: "Strategic repositioning, brand messaging architecture, and marketing systems during organizational restructuring.",
+    description: "Led the complete brand rebuild and messaging architecture, restoring stakeholder credibility, visibility, and supporting funding outcomes.",
     fullStory: [
-      "Road safety advocacy demands both emotional reverence and authoritative urgency. The African Road Crash Victims Conference (IRCVAC) brought together policymakers, survivors, and global transport safety organizations.",
-      "We developed an empathetic yet commanding visual identity that highlighted remembrance while driving forward actionable policy reform across municipal transport systems.",
-      "Every visual asset—from the summit identity mark to delegate manuals, stage backdrops, and digital live-stream suites—was engineered to communicate dignity, impact, and collective responsibility."
+      "Vision Incubation Hub is an entrepreneurship and digital innovation center dedicated to accelerating startups and youth initiatives.",
+      "As Brand Manager (following my tenure as Communications Lead), I led the strategic repositioning and brand rebuild during an operational and financial transition.",
+      "We restructured the organization's messaging architecture, established brand audit frameworks, standardized communication across offline and digital platforms, and executed awareness campaigns.",
+      "The outcome restored institutional credibility, solidified strategic partnerships, and directly supported successful program funding."
     ],
-    challenge: "Crafting a visual brand that honors victim memory without feeling defeatist, while inspiring urgent public sector commitment.",
-    solution: "A dynamic identity system blending deep commemorative slate with vivid warning amber and hopeful dawn accents, backed by crisp typographic storytelling.",
+    challenge: "Rebuilding organizational credibility and public trust during a period of operational instability.",
+    solution: "Developed comprehensive brand frameworks, messaging architectures, audit workshops, and pitch collateral for portfolio ventures.",
     impactMetrics: [
-      "Reached over 120,000 digital impressions across West Africa",
-      "Represented 14 stakeholder coalitions & international observers",
-      "Adopted as official visual identity for ongoing regional safety forums"
+      "Restored stakeholder confidence and funding partnerships",
+      "Standardized brand frameworks across internal teams & portfolio ventures",
+      "Conducted 10+ positioning workshops for emerging founders"
     ],
     deliverables: [
-      "Conference Master Identity & Guidelines",
-      "Stage Backdrops & Spatial Branding",
-      "Policy Whitepaper & Delegate Program Design",
-      "Digital Campaign Assets & Video Motion Titles"
+      "Comprehensive Brand Architecture & Guidelines",
+      "Pitch Decks, Grant Proposals & Campaign Assets",
+      "Internal Brand Audit & Positioning Frameworks",
+      "Integrated Digital & Offline Communications Suite"
     ],
-    tags: ["Brand Identity", "Advocacy", "Conference Design", "Social Impact", "Public Policy"],
-    coverGradient: "from-red-500/20 via-amber-600/20 to-black",
-    badgeColor: "bg-red-500/10 text-red-400 border-red-500/20",
-    accentColor: "#ef4444",
+    tags: ["Brand Management", "Venture Incubation", "Communications Strategy", "Brand Architecture"],
+    coverGradient: "from-teal-500/20 via-emerald-600/20 to-black",
+    badgeColor: "bg-teal-500/10 text-teal-400 border-teal-500/20",
+    accentColor: "#14b8a6",
     featured: true
   },
   {
@@ -75,7 +212,7 @@ export const projects: Project[] = [
     year: "2023",
     category: "Event & Conference",
     tagline: "Electrifying urban sports culture through vibrant visual storytelling and energetic community merchandise.",
-    description: "Creative direction, dynamic event branding, merchandise design, and multimedia collateral for an premier youth sports and community fiesta.",
+    description: "Creative direction, dynamic event branding, merchandise design, and multimedia collateral for a premier youth sports and community fiesta.",
     fullStory: [
       "Urban sports represent camaraderie, raw energy, and generational ambition. HAUS9 teamed up with Victoria Joseph to create an annual sports fiesta connecting athletes, creators, and community leaders.",
       "Our creative direction synthesized high-velocity athletic motifs with bold street-culture typography and striking neon-accented color schemes.",
@@ -99,72 +236,6 @@ export const projects: Project[] = [
     badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     accentColor: "#10b981",
     featured: true
-  },
-  {
-    id: "ajmax-mindset-hack",
-    slug: "ajmax-mindset-hack",
-    title: "AJMAX Mindset Hack Conference",
-    client: "AJMAX Leadership Institute",
-    year: "2023",
-    category: "Brand Identity",
-    tagline: "Empowering next-generation founders to disrupt conventional mental barriers and scale business models.",
-    description: "Strategic branding, keynote presentation architecture, and stage design for a premier entrepreneurship summit.",
-    fullStory: [
-      "The AJMAX Mindset Hack Conference is an intensive platform aimed at unlocking exponential potential in young African founders and creatives.",
-      "We developed a sleek, future-forward visual framework centered around cognitive disruption, strategic execution, and technological empowerment.",
-      "The design system permeated every touchpoint: attendee workbooks, stage screens, interactive polls, and executive speaker intro reels."
-    ],
-    challenge: "Communicating complex mindset and high-performance frameworks in an engaging, modern visual vernacular.",
-    solution: "Architected a minimalist dark-mode visual system punctuated with high-contrast electric accents and lucid infographics.",
-    impactMetrics: [
-      "850+ registered in-person delegates & founders",
-      "Keynote slide decks viewed by over 15,000 digital followers",
-      "Recognized for top event aesthetic in regional startup circle"
-    ],
-    deliverables: [
-      "Keynote Stage & Environmental Graphics",
-      "Executive Slide Master Template",
-      "Speaker Intro Reel Visual Direction",
-      "Comprehensive Digital Promo Suite"
-    ],
-    tags: ["Keynote Design", "Brand Strategy", "Entrepreneurship", "Stage Graphics"],
-    coverGradient: "from-blue-500/20 via-indigo-600/20 to-black",
-    badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-    accentColor: "#3b82f6",
-    featured: true
-  },
-  {
-    id: "the-pivot-conference",
-    slug: "the-pivot-conference",
-    title: "The Pivot Conference: Strategy & Transition",
-    client: "The Pivot Network",
-    year: "2023",
-    category: "Event & Conference",
-    tagline: "Helping mid-career professionals and innovators navigate career shifts in an AI-driven economy.",
-    description: "Holistic event branding, transition framework diagrams, and digital registration portal design.",
-    fullStory: [
-      "Career pivots require clarity, boldness, and actionable playbooks. The Pivot Conference gathered industry veterans to mentor rising talent on positioning themselves for global tech and creative roles.",
-      "We crafted a visual brand centered around trajectories, vectors, and deliberate progression.",
-      "The result was an inspiring event experience that framed career evolution as an art of strategic reinvention."
-    ],
-    challenge: "Creating an identity that resonated equally with corporate executives and indie creative freelancers.",
-    solution: "A clean geometric identity system utilizing directional typography and progressive gradient pathways.",
-    impactMetrics: [
-      "600+ delegates in attendance",
-      "94% satisfaction score on event materials and clarity",
-      "Extensive social engagement across LinkedIn and X"
-    ],
-    deliverables: [
-      "Summit Identity & Brand Guide",
-      "Digital Attendee Guide & Workbooks",
-      "Social Media Campaign Graphics",
-      "Interactive Stage Backdrops"
-    ],
-    tags: ["Conference Identity", "Strategic Positioning", "Print & Digital", "Career Transition"],
-    coverGradient: "from-purple-500/20 via-pink-600/20 to-black",
-    badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-    accentColor: "#a855f7",
-    featured: false
   },
   {
     id: "yalcon-summit",

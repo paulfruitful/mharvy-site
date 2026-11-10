@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Scratch scripts & temporary inspect files
+*.py
+public/preview_*
+public/face_*
+public/gallery_contact_sheet.jpg
+public/gallery_inspect/
+public/skeleton_top_crop.png
+public/test_composite.jpg

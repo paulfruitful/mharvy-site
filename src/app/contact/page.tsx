@@ -1,341 +1,306 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import {
-  Phone,
   Mail,
+  Phone,
   MapPin,
-  Send,
+  ArrowRight,
+  ExternalLink,
   CheckCircle2,
-  Sparkles,
-  ChevronDown,
-  Clock,
-  Globe,
-  MessageSquare,
 } from "lucide-react";
-import { WhatsAppIcon } from "@/components/Icons";
 import { useCart } from "@/context/CartContext";
+import {
+  EditorialCornerCrosshairs,
+  EngagementRibbonLoop,
+  CreativeScribbleLoop,
+} from "@/components/ArtisticVisuals";
 
 export default function ContactPage() {
   const { showToast } = useCart();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [company, setCompany] = useState("");
-  const [service, setService] = useState("Brand Strategy & Positioning");
-  const [budget, setBudget] = useState("₦1,000,000 - ₦3,000,000 ($1,000 - $3,000)");
-  const [timeline, setTimeline] = useState("Within 2 to 4 weeks");
+  const [scope, setScope] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !message) {
-      showToast("Please complete all required fields");
+      showToast("Please provide your name, email, and inquiry details");
       return;
     }
     setSubmitted(true);
-    showToast("Inquiry received! Marvellous will respond within 24 business hours.");
+    showToast("Inquiry received. Marvellous will respond directly within 24 hours.");
   };
 
-  const faqs = [
-    {
-      q: "How does the engagement kickoff work?",
-      a: "After you submit this inquiry, Chibuike Godwin Marvellous reviews your brief within 24 hours. We then schedule a 30-minute discovery consultation to align on strategic objectives, scope, timeline, and commercial fit.",
-    },
-    {
-      q: "Do you work with startups and organizations outside Nigeria?",
-      a: "Yes, absolutely. Over 40% of our consulting and branding commissions originate from diaspora founders, pan-African coalitions, and global startups across the UK, US, Canada, Kenya, and Ghana.",
-    },
-    {
-      q: "What is your typical turnaround time for a complete brand identity?",
-      a: "A foundational brand identity and visual communications system typically takes between 3 to 5 weeks from kickoff to final asset and guideline delivery.",
-    },
-    {
-      q: "Can I book Chibuike Godwin Marvellous for a speaking engagement or workshop?",
-      a: "Yes. Simply select 'Keynote, Workshop or Advocacy' in the service dropdown above and outline the event dates, venue or virtual platform, and expected audience profile.",
-    },
-  ];
-
   return (
-    <div className="flex flex-col min-h-screen bg-white text-[#3E3E42] font-poppins">
-      {/* Header Banner */}
-      <section className="pt-20 pb-14 bg-gradient-to-b from-slate-50 via-white to-white border-b border-[#DDDDDD] relative">
-        <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-[#012A69] uppercase tracking-widest font-proxima">
-              <MessageSquare className="w-4 h-4 text-[#012A69]" />
-              <span>Direct Inquiries &bull; Book Consultation</span>
-            </div>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#012A69] font-serif-luxury tracking-tight leading-tight">
-              Start a Strategic <br />
-              <span className="italic">Conversation.</span>
-            </h1>
-            <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
-              Direct access to Chibuike Godwin Marvellous for high-stakes brand strategy, visual communications, speaking engagements, and advisory.
-            </p>
-          </div>
+    <div className="flex flex-col min-h-screen bg-black text-[#F5F2EB] font-poppins selection:bg-white selection:text-black">
+      
+      {/* =========================================================================
+          HERO / HEADER — Minimalist, Small Text, Classic Premium
+          ========================================================================= */}
+      <section className="relative pt-32 pb-16 sm:pb-20 bg-black border-b border-white/10 overflow-hidden">
+        
+        {/* Subtle Architectural Guide Line */}
+        <div className="absolute top-0 left-[40%] w-[1px] h-10 bg-white/20 hidden md:block pointer-events-none" />
+
+        <EditorialCornerCrosshairs />
+
+        {/* Floating Creative Scribble Flourish */}
+        <div className="absolute top-24 right-20 hidden lg:block z-0 pointer-events-none opacity-20">
+          <CreativeScribbleLoop />
+        </div>
+
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+          <span className="text-[10px] font-mono tracking-[0.28em] text-white/40 uppercase block mb-3">
+            DIRECT INQUIRIES &amp; ADVISORY
+          </span>
+
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.12em] text-white uppercase leading-[1.3] font-sans max-w-2xl">
+            Start a Conversation. <br />
+            <span className="font-semibold text-white/95">Direct Executive Line.</span>
+          </h1>
+
+          <p className="text-xs sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-xl mt-4">
+            Available for brand strategy, venture architecture, tech summits, and keynote leadership worldwide.
+          </p>
         </div>
       </section>
 
-      {/* Main Content: Form + Contact Info */}
-      <section className="py-16 bg-[#F8F9FA] flex-1">
-        <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Contact Form Column */}
-            <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-2xl border border-[#DDDDDD] shadow-sm">
-              {submitted ? (
-                <div className="text-center py-12 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-[#012A69] font-serif-luxury">
-                    Inquiry Successfully Received!
-                  </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 max-w-sm mx-auto leading-relaxed">
-                    Thank you, <strong className="text-[#012A69]">{name}</strong>. Your project brief has been sent directly to Chibuike Godwin Marvellous&apos;s executive desk. Expect a response within 24 business hours.
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="mt-4 px-6 py-2.5 rounded-lg btn-mharvy-primary text-xs font-bold shadow-sm"
-                  >
-                    Submit Another Inquiry
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <h2 className="text-xl font-bold text-[#012A69] font-serif-luxury">
-                      Tell Us About Your Project
-                    </h2>
-                    <p className="text-xs text-gray-500 mt-1">
-                      Complete the brief below and we will prepare tailored recommendations.
-                    </p>
-                  </div>
+      {/* =========================================================================
+          MAIN CONTACT & DIRECT CHANNELS GRID
+          ========================================================================= */}
+      <section className="relative py-20 sm:py-28 bg-black flex-1 overflow-hidden">
+        
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            
+            {/* Left Column: Direct Channels & Dossier Contact */}
+            <div className="lg:col-span-5 space-y-10">
+              
+              <div>
+                <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-2">
+                  OFFICIAL CONTACT
+                </span>
+                <h2 className="text-base sm:text-lg font-medium text-white font-sans uppercase tracking-wide">
+                  Chibuike Godwin Marvellous
+                </h2>
+                <p className="text-xs text-zinc-400 font-light mt-1">
+                  Brand Strategist &amp; Visual Communications Designer
+                </p>
+              </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Direct Info List */}
+              <div className="space-y-6 divide-y divide-white/10 border-y border-white/10 py-6">
+                
+                {/* Location */}
+                <div className="pt-4 first:pt-0 flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-zinc-500 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="text-[9px] font-mono tracking-widest text-white/40 uppercase block mb-0.5">
+                      Base Location
+                    </span>
+                    <span className="text-xs font-sans text-white/90">
+                      Aba, Abia State, Nigeria
+                    </span>
+                    <span className="text-[10px] font-mono text-zinc-500 block mt-0.5">
+                      Deploying Globally across Africa, UK, US &amp; Diaspora
+                    </span>
+                  </div>
+                </div>
+
+                {/* Direct Phone / WhatsApp */}
+                <div className="pt-6 flex items-start gap-3">
+                  <Phone className="w-4 h-4 text-zinc-500 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="text-[9px] font-mono tracking-widest text-white/40 uppercase block mb-0.5">
+                      Direct Telephone &amp; WhatsApp
+                    </span>
+                    <a
+                      href="http://wa.me/+2347072118506"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-mono text-white/90 hover:text-white hover:underline transition-colors flex items-center gap-1.5"
+                    >
+                      <span>+234 707 211 8506</span>
+                      <ExternalLink className="w-3 h-3 text-zinc-500" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Direct Email */}
+                <div className="pt-6 flex items-start gap-3">
+                  <Mail className="w-4 h-4 text-zinc-500 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <span className="text-[9px] font-mono tracking-widest text-white/40 uppercase block mb-0.5">
+                      Electronic Mail
+                    </span>
+                    <a
+                      href="mailto:talktochibuikemarvellous@gmail.com"
+                      className="text-xs font-mono text-white/90 hover:text-white hover:underline transition-colors"
+                    >
+                      talktochibuikemarvellous@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Verified Digital Profiles */}
+              <div>
+                <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-4">
+                  OFFICIAL CHANNELS
+                </span>
+
+                <div className="flex flex-col gap-2.5">
+                  <a
+                    href="https://www.linkedin.com/in/thecreativemharvy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 bg-black border border-white/10 hover:border-white/40 transition-colors flex items-center justify-between group"
+                  >
+                    <span className="text-xs font-mono text-zinc-300 group-hover:text-white">
+                      LinkedIn // thecreativemharvy
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-zinc-500 group-hover:translate-x-1 transition-transform" />
+                  </a>
+
+                  <a
+                    href="https://www.behance.net/thecreativemharvy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 bg-black border border-white/10 hover:border-white/40 transition-colors flex items-center justify-between group"
+                  >
+                    <span className="text-xs font-mono text-zinc-300 group-hover:text-white">
+                      Design Portfolio // Behance
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-zinc-500 group-hover:translate-x-1 transition-transform" />
+                  </a>
+
+                  <a
+                    href="https://www.mharvy.com.ng"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 bg-black border border-white/10 hover:border-white/40 transition-colors flex items-center justify-between group"
+                  >
+                    <span className="text-xs font-mono text-zinc-300 group-hover:text-white">
+                      Official Platform // mharvy.com.ng
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-zinc-500 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Right Column: Minimalist Inquiry Form */}
+            <div className="lg:col-span-7">
+              <div className="p-8 sm:p-10 bg-black border border-white/10 relative">
+                
+                <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-2">
+                  TRANSMIT INQUIRY
+                </span>
+                <h3 className="text-base sm:text-lg font-medium text-white font-sans uppercase mb-8">
+                  Initiate Advisory Brief
+                </h3>
+
+                {submitted ? (
+                  <div className="py-12 flex flex-col items-center text-center space-y-4">
+                    <CheckCircle2 className="w-8 h-8 text-white" />
+                    <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
+                      Inquiry Dispatched
+                    </h4>
+                    <p className="text-xs text-zinc-400 font-light max-w-sm leading-relaxed">
+                      Thank you. Your message has been routed directly to Chibuike Godwin Marvellous. You will receive an official response within 24 business hours.
+                    </p>
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="mt-4 px-6 py-2 border border-white/30 text-xs font-mono uppercase text-white hover:bg-white hover:text-black transition-colors"
+                    >
+                      Transmit Another Brief
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <label className="block text-xs font-bold text-[#012A69] mb-1 font-proxima uppercase tracking-wider">
-                        Full Name *
+                      <label className="text-[10px] font-mono tracking-widest text-white/50 uppercase block mb-2">
+                        Your Name / Organization *
                       </label>
                       <input
                         type="text"
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="e.g. Godwin Marvellous"
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 border border-gray-300 text-xs text-[#3E3E42] focus:outline-none focus:border-[#012A69] transition-colors"
+                        placeholder="e.g. Elena Vance / Horizon Technologies"
+                        className="w-full bg-black border border-white/15 px-4 py-3 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors font-sans"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#012A69] mb-1 font-proxima uppercase tracking-wider">
-                        Business Email *
+                      <label className="text-[10px] font-mono tracking-widest text-white/50 uppercase block mb-2">
+                        Official Email Address *
                       </label>
                       <input
                         type="email"
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="you@domain.com"
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 border border-gray-300 text-xs text-[#3E3E42] focus:outline-none focus:border-[#012A69] transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-[#012A69] mb-1 font-proxima uppercase tracking-wider">
-                        Phone / WhatsApp
-                      </label>
-                      <input
-                        type="tel"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        placeholder="+234 800 000 0000"
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 border border-gray-300 text-xs text-[#3E3E42] focus:outline-none focus:border-[#012A69] transition-colors"
+                        placeholder="elena@horizon.com"
+                        className="w-full bg-black border border-white/15 px-4 py-3 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors font-sans"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold text-[#012A69] mb-1 font-proxima uppercase tracking-wider">
-                        Company or Project Name
+                      <label className="text-[10px] font-mono tracking-widest text-white/50 uppercase block mb-2">
+                        Scope of Engagement
                       </label>
                       <input
                         type="text"
-                        value={company}
-                        onChange={(e) => setCompany(e.target.value)}
-                        placeholder="e.g. NextGen Logistics"
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 border border-gray-300 text-xs text-[#3E3E42] focus:outline-none focus:border-[#012A69] transition-colors"
+                        value={scope}
+                        onChange={(e) => setScope(e.target.value)}
+                        placeholder="e.g. Tech Summit Creative Direction / App UX Systems"
+                        className="w-full bg-black border border-white/15 px-4 py-3 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors font-sans"
                       />
                     </div>
-                  </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-[#012A69] mb-1 font-proxima uppercase tracking-wider">
-                        Primary Service
+                      <label className="text-[10px] font-mono tracking-widest text-white/50 uppercase block mb-2">
+                        Brief &amp; Objectives *
                       </label>
-                      <select
-                        value={service}
-                        onChange={(e) => setService(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 border border-gray-300 text-xs text-[#3E3E42] focus:outline-none focus:border-[#012A69] transition-colors"
-                      >
-                        <option>Brand Strategy &amp; Positioning</option>
-                        <option>Visual Identity &amp; Communications System</option>
-                        <option>UI/UX &amp; Digital Product Design</option>
-                        <option>Keynote, Workshop or Advocacy</option>
-                        <option>General Creative Advisory</option>
-                      </select>
+                      <textarea
+                        required
+                        rows={5}
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        placeholder="Outline the core challenge, timeline, and strategic outcomes you are looking to achieve..."
+                        className="w-full bg-black border border-white/15 px-4 py-3 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors font-sans resize-none"
+                      />
                     </div>
 
-                    <div>
-                      <label className="block text-xs font-bold text-[#012A69] mb-1 font-proxima uppercase tracking-wider">
-                        Budget Range
-                      </label>
-                      <select
-                        value={budget}
-                        onChange={(e) => setBudget(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 border border-gray-300 text-xs text-[#3E3E42] focus:outline-none focus:border-[#012A69] transition-colors"
-                      >
-                        <option>₦500k - ₦1,000,000 ($500 - $1,000)</option>
-                        <option>₦1,000,000 - ₦3,000,000 ($1,000 - $3,000)</option>
-                        <option>₦3,000,000 - ₦7,000,000 ($3,000 - $7,000)</option>
-                        <option>₦7,000,000+ ($7,000+ Enterprise)</option>
-                      </select>
-                    </div>
-                  </div>
+                    <button
+                      type="submit"
+                      className="w-full py-3.5 border border-white/40 hover:border-white text-white hover:bg-white hover:text-black font-sans text-[11px] font-semibold tracking-[0.22em] uppercase transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg"
+                    >
+                      <span>Transmit Inquiry</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    </button>
 
-                  <div>
-                    <label className="block text-xs font-bold text-[#012A69] mb-1 font-proxima uppercase tracking-wider">
-                      Project Goals &amp; Context *
-                    </label>
-                    <textarea
-                      required
-                      rows={4}
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      placeholder="Briefly describe what you are looking to achieve, your timeline, and any key links..."
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-gray-50 border border-gray-300 text-xs text-[#3E3E42] focus:outline-none focus:border-[#012A69] transition-colors resize-none"
-                    />
-                  </div>
+                    <p className="text-[10px] font-mono text-zinc-500 text-center">
+                      Direct executive response within 24 business hours.
+                    </p>
+                  </form>
+                )}
 
-                  <button
-                    type="submit"
-                    className="w-full py-3.5 rounded-lg btn-mharvy-primary font-bold text-xs flex items-center justify-center gap-2 shadow-sm"
-                  >
-                    <span>Submit Inquiry</span>
-                    <Send className="w-3.5 h-3.5" />
-                  </button>
-                </form>
-              )}
-            </div>
-
-            {/* Direct Channels Column */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="p-8 rounded-2xl bg-white border border-[#DDDDDD] shadow-sm space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-[#012A69] font-serif-luxury">
-                    Direct Contact Channels
-                  </h3>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Connect directly through our official channels.
-                  </p>
-                </div>
-
-                <div className="space-y-4 text-xs">
-                  <a
-                    href="mailto:hello@mharvy.com.ng"
-                    className="p-4 rounded-xl bg-gray-50 border border-gray-200 flex items-center gap-3 hover:border-[#012A69] transition-colors block"
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-blue-50 text-[#012A69] flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[11px] text-gray-400 uppercase font-bold block">Email</span>
-                      <strong className="text-xs text-[#012A69]">hello@mharvy.com.ng</strong>
-                    </div>
-                  </a>
-
-                  <a
-                    href="tel:+2347072118506"
-                    className="p-4 rounded-xl bg-gray-50 border border-gray-200 flex items-center gap-3 hover:border-[#012A69] transition-colors block"
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-blue-50 text-[#012A69] flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[11px] text-gray-400 uppercase font-bold block">Telephone</span>
-                      <strong className="text-xs text-[#012A69]">+234 707 211 8506</strong>
-                    </div>
-                  </a>
-
-                  <a
-                    href="https://wa.me/2347072118506"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center gap-3 hover:bg-emerald-100 transition-colors block"
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-emerald-600 text-white flex items-center justify-center flex-shrink-0">
-                      <WhatsAppIcon className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[11px] text-emerald-700 uppercase font-bold block">Instant Chat</span>
-                      <strong className="text-xs text-emerald-900">WhatsApp Direct (+234 707 211 8506)</strong>
-                    </div>
-                  </a>
-
-                  <div className="p-4 rounded-xl bg-gray-50 border border-gray-200 flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-blue-50 text-[#012A69] flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[11px] text-gray-400 uppercase font-bold block">Locations</span>
-                      <span className="text-xs text-[#3E3E42]">Lagos &bull; Port Harcourt, Nigeria</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Engagement FAQs */}
-              <div className="p-8 rounded-2xl bg-white border border-[#DDDDDD] shadow-sm space-y-4">
-                <h3 className="text-lg font-bold text-[#012A69] font-serif-luxury">
-                  Frequently Asked Questions
-                </h3>
-                <div className="space-y-3">
-                  {faqs.map((faq, i) => {
-                    const isOpen = openFaq === i;
-                    return (
-                      <div
-                        key={i}
-                        className="rounded-xl border border-gray-200 overflow-hidden"
-                      >
-                        <button
-                          onClick={() => setOpenFaq(isOpen ? null : i)}
-                          className="w-full p-3.5 text-left text-xs font-bold text-[#012A69] flex items-center justify-between bg-gray-50 hover:bg-gray-100 transition-colors"
-                        >
-                          <span>{faq.q}</span>
-                          <ChevronDown
-                            className={`w-3.5 h-3.5 transition-transform ${
-                              isOpen ? "rotate-180 text-[#012A69]" : "text-gray-400"
-                            }`}
-                          />
-                        </button>
-                        {isOpen && (
-                          <div className="p-3.5 text-xs text-[#3E3E42] bg-white border-t border-gray-100 leading-relaxed">
-                            {faq.a}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
               </div>
             </div>
+
           </div>
         </div>
+
       </section>
+
     </div>
   );
 }

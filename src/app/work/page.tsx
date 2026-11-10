@@ -2,176 +2,139 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  Layers,
-  ArrowUpRight,
-  Sparkles,
-  Award,
-  ArrowRight,
-  Filter,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import { Project } from "@/types";
 import { ProjectModal } from "@/components/ProjectModal";
+import {
+  SectionRibbonWave,
+  EditorialCornerCrosshairs,
+  CreativeScribbleLoop,
+} from "@/components/ArtisticVisuals";
 
 export default function WorkPage() {
-  const [activeCategory, setActiveCategory] = useState<string>("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const categories = [
-    "All",
-    "Brand Identity",
-    "UI/UX & App",
-    "Event & Conference",
-    "Advocacy & Social Impact",
-  ];
-
-  const filteredProjects =
-    activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
-
   return (
-    <div className="flex flex-col min-h-screen bg-white text-[#3E3E42] font-poppins">
-      {/* Header Banner */}
-      <section className="pt-20 pb-14 bg-gradient-to-b from-slate-50 via-white to-white border-b border-[#DDDDDD] relative">
-        <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-[#012A69] uppercase tracking-widest font-proxima">
-              <Layers className="w-4 h-4 text-[#012A69]" />
-              <span>Selected Portfolio &bull; Case Studies</span>
-            </div>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#012A69] font-serif-luxury tracking-tight leading-tight">
-              Work Designed for <br />
-              <span className="italic">Clarity, Dignity &amp; Scale.</span>
-            </h1>
-            <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
-              Explore how we partner with founders, non-profits, and event convenors to build distinctive brand systems, user-centric apps, and high-impact advocacy initiatives.
-            </p>
-          </div>
+    <div className="flex flex-col min-h-screen bg-black text-[#F5F2EB] font-poppins selection:bg-white selection:text-black">
+      
+      {/* =========================================================================
+          HERO / HEADER — Minimalist, Small Text, Classic Premium
+          ========================================================================= */}
+      <section className="relative pt-32 pb-16 sm:pb-20 bg-black border-b border-white/10 overflow-hidden">
+        
+        {/* Subtle Architectural Guide Line */}
+        <div className="absolute top-0 left-[35%] w-[1px] h-10 bg-white/20 hidden md:block pointer-events-none" />
 
-          {/* Category Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pt-8 pb-2">
-            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1 mr-2 flex-shrink-0 font-proxima">
-              <Filter className="w-3.5 h-3.5" /> Filter:
-            </span>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                  activeCategory === cat
-                    ? "bg-[#012A69] text-white font-bold shadow-sm"
-                    : "bg-white text-gray-600 hover:text-[#012A69] border border-gray-200"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+        {/* Minimal Corner Crosshairs */}
+        <EditorialCornerCrosshairs />
+
+        {/* Floating Creative Scribble Flourish in Whitespace */}
+        <div className="absolute top-24 right-16 hidden lg:block z-0 pointer-events-none opacity-20">
+          <CreativeScribbleLoop />
+        </div>
+
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+          <span className="text-[10px] font-mono tracking-[0.28em] text-white/40 uppercase block mb-3">
+            PORTFOLIO &amp; ENGAGEMENTS
+          </span>
+
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.12em] text-white uppercase leading-[1.3] font-sans max-w-2xl">
+            Selected Work &amp; <br />
+            <span className="font-semibold text-white/95">Strategic Architecture.</span>
+          </h1>
+
+          <p className="text-xs sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-xl mt-4">
+            A curated record of large-scale technology summits, pan-African conferences, mobile applications, and mission-driven venture rebuilds.
+          </p>
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-16 bg-[#F8F9FA] flex-1">
-        <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {filteredProjects.map((project) => (
+      {/* =========================================================================
+          SELECTED PROJECTS GRID — Solid Black, Minimalist, Zero Numbering/Tags
+          ========================================================================= */}
+      <section className="relative py-20 sm:py-28 bg-black flex-1 overflow-hidden">
+        
+        {/* Section Ribbon Wave */}
+        <SectionRibbonWave className="top-1/3" />
+        <SectionRibbonWave className="bottom-10" flip={true} />
+
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {projects.map((project) => (
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className="group cursor-pointer rounded-2xl bg-white border border-[#DDDDDD] hover:border-[#012A69] overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl"
+                className="group cursor-pointer p-6 sm:p-8 bg-black/80 backdrop-blur-xs border border-white/10 hover:border-white/40 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  {/* Card Visual Header */}
-                  <div
-                    className={`w-full h-64 bg-gradient-to-br ${project.coverGradient} p-6 flex flex-col justify-between relative overflow-hidden`}
-                  >
-                    <div className="flex items-center justify-between z-10">
-                      <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/90 text-[#012A69] shadow-sm">
-                        {project.category}
-                      </span>
-                      <span className="text-xs font-mono font-bold text-white bg-black/40 px-2.5 py-1 rounded-full backdrop-blur-sm">
-                        {project.year}
-                      </span>
-                    </div>
-
-                    <div className="z-10">
-                      <span className="text-xs font-bold uppercase tracking-widest text-white/90 font-proxima">
-                        Client: {project.client}
-                      </span>
-                      <h2 className="text-2xl font-bold text-white tracking-tight mt-1 font-serif-luxury drop-shadow-sm">
-                        {project.title}
-                      </h2>
-                    </div>
-
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-white font-bold text-xs gap-1.5">
-                      <span>Inspect Case Study</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </div>
+                  <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                    <span className="text-[10px] font-mono tracking-widest text-white/40 uppercase">
+                      Client: {project.client}
+                    </span>
+                    <span className="text-[10px] font-mono text-zinc-500">
+                      {project.year}
+                    </span>
                   </div>
 
-                  {/* Body description */}
-                  <div className="p-6">
-                    <p className="text-sm text-[#3E3E42] line-clamp-3 leading-relaxed">
-                      {project.description}
-                    </p>
+                  <h2 className="text-base sm:text-lg font-medium text-white tracking-normal font-sans group-hover:text-white transition-colors mb-3">
+                    {project.title}
+                  </h2>
 
-                    {/* Deliverables tags */}
-                    <div className="flex flex-wrap gap-1.5 mt-5">
-                      {project.deliverables.map((del, i) => (
-                        <span
-                          key={i}
-                          className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-gray-100 text-gray-700"
-                        >
-                          {del}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-3">
+                    {project.description}
+                  </p>
                 </div>
 
-                {/* Card footer CTA */}
-                <div className="px-6 py-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#012A69] group-hover:underline inline-flex items-center gap-1">
-                    Read Case Study Details &rarr;
-                  </span>
-                  <span className="text-xs text-gray-400">
-                    Results: {project.impactMetrics[0] || "Measurable Impact"}
+                <div className="pt-6 mt-8 border-t border-white/10 flex items-center justify-between">
+                  <div className="flex flex-wrap gap-2">
+                    {project.deliverables.slice(0, 2).map((d) => (
+                      <span
+                        key={d}
+                        className="text-[10px] font-mono text-zinc-500"
+                      >
+                        {d} &bull;
+                      </span>
+                    ))}
+                  </div>
+
+                  <span className="text-[11px] font-mono tracking-wider text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all inline-flex items-center gap-1">
+                    Inspect &rarr;
                   </span>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* Hire Mharvy CTA Bar */}
-      <section className="py-16 bg-white border-t border-[#DDDDDD]">
-        <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#012A69] font-serif-luxury">
-            Ready to Build a Brand That Matters?
+      {/* =========================================================================
+          BOTTOM CTA — Direct Inquiry
+          ========================================================================= */}
+      <section className="relative py-20 bg-black border-t border-white/10 text-center">
+        <div className="max-w-xl mx-auto px-6">
+          <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-2">
+            ENGAGEMENT
+          </span>
+          <h2 className="text-base sm:text-lg font-normal tracking-wide text-white uppercase font-sans mb-3">
+            Have a project or conference in mind?
           </h2>
-          <p className="text-sm text-gray-600 mt-2 max-w-xl mx-auto">
-            Let&apos;s collaborate on your next brand identity, digital product launch, or strategic campaign.
+          <p className="text-xs text-zinc-400 font-light leading-relaxed mb-6">
+            Available for end-to-end creative direction, communications strategy, and tech ecosystem architecture worldwide.
           </p>
-          <div className="mt-6 flex justify-center gap-4">
-            <Link
-              href="/contact"
-              className="px-6 py-3 rounded-lg btn-mharvy-primary text-xs font-bold shadow-sm"
-            >
-              Start a Project Conversation
-            </Link>
-            <Link
-              href="/services"
-              className="px-6 py-3 rounded-lg btn-mharvy-secondary text-xs font-semibold shadow-sm"
-            >
-              View Service Packages
-            </Link>
-          </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center px-7 py-3 border border-white/40 hover:border-white text-white hover:bg-white hover:text-black font-sans text-[11px] font-semibold tracking-[0.22em] uppercase transition-all duration-300 group"
+          >
+            <span>Start a Conversation</span>
+            <ArrowRight className="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         </div>
       </section>
 
+      {/* Modal */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}

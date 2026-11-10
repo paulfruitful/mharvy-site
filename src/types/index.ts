@@ -4,7 +4,7 @@ export interface Project {
   title: string;
   client: string;
   year: string;
-  category: "Brand Identity" | "UI/UX & App" | "Event & Conference" | "Advocacy & Social Impact";
+  category: string;
   tagline: string;
   description: string;
   fullStory: string[];
@@ -29,7 +29,7 @@ export interface Product {
   id: string;
   slug: string;
   title: string;
-  category: "Guides & Toolkits" | "Merchandise" | "Courses & Templates";
+  category: string;
   tagline: string;
   description: string;
   features: string[];
@@ -44,6 +44,7 @@ export interface Product {
   coverGradient: string;
   badge: string;
   format: string;
+  directUrl?: string;
 }
 
 export interface CartItem {
@@ -55,7 +56,7 @@ export interface BlogPost {
   id: string;
   slug: string;
   title: string;
-  category: "Brand Strategy" | "Case Study" | "Design Philosophy" | "Youth & Community";
+  category: string;
   excerpt: string;
   content: string[];
   keyTakeaways: string[];

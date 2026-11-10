@@ -2,27 +2,27 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #3E3E42;
-    --primary: #012A69;
-    --primary-hover: #060526;
-    --heading: #012A69;
-    --text-regular: #3E3E42;
-    --border-color: #DDDDDD;
+    --background: #000000;
+    --foreground: #F5F2EB;
+    --primary: #C59B27;
+    --primary-hover: #E2B538;
+    --heading: #FFFFFF;
+    --text-regular: #D1D5DB;
+    --border-color: rgba(255, 255, 255, 0.1);
     --star-rating: #FFB828;
     --on-sale: #55BC75;
   }
 
   body {
-    background-color: #ffffff;
-    color: #3E3E42;
+    background-color: #000000;
+    color: #F5F2EB;
     font-family: poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: poppins, sans-serif;
-    color: #012A69;
+    color: #FFFFFF;
     font-weight: 800;
   }
 }

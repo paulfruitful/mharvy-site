@@ -4,234 +4,217 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  ArrowUpRight,
-  Phone,
   Mail,
+  Phone,
   MapPin,
-  Heart,
-  Send,
-  CheckCircle2,
-  ShieldCheck,
+  ArrowRight,
+  ExternalLink,
 } from "lucide-react";
 import {
   YoutubeIcon,
-  TwitterIcon,
   LinkedinIcon,
-  InstagramIcon,
   WhatsAppIcon,
 } from "@/components/Icons";
-import { useCart } from "@/context/CartContext";
+import { EditorialCornerCrosshairs } from "@/components/ArtisticVisuals";
 
 export function Footer() {
-  const { showToast } = useCart();
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newsletterEmail || !newsletterEmail.includes("@")) {
-      showToast("Please enter a valid email address");
-      return;
-    }
+    if (!newsletterEmail || !newsletterEmail.includes("@")) return;
     setSubscribed(true);
-    showToast("Welcome to the Tribe! Check your inbox shortly.");
     setNewsletterEmail("");
   };
 
   return (
-    <footer className="bg-[#F8F9FA] text-[#3E3E42] border-t border-[#DDDDDD] pt-16 pb-12 relative overflow-hidden font-poppins">
-      <div className="max-w-[1260px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-[#DDDDDD]">
-          {/* Brand Bio Column */}
+    <footer className="bg-black text-white border-t border-white/10 pt-20 pb-12 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-white/10">
+          
+          {/* Brand Dossier Column */}
           <div className="lg:col-span-5 flex flex-col gap-5">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-gray-200 shadow-sm flex items-center justify-center bg-white flex-shrink-0">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-8 h-8 rounded border border-white/15 flex items-center justify-center bg-black overflow-hidden flex-shrink-0">
                 <Image
                   src="/favicon.png"
                   alt="theCreative Mharvy Logo"
-                  width={40}
-                  height={40}
-                  className="object-contain p-1"
+                  width={24}
+                  height={24}
+                  className="object-contain"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-[#012A69] font-serif-luxury tracking-tight leading-none">
+                <span className="text-sm font-normal text-white uppercase tracking-wider group-hover:text-[#C5A880] transition-colors">
                   theCreative Mharvy
                 </span>
-                <span className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mt-1 font-proxima">
+                <span className="text-[10px] text-zinc-500 font-mono tracking-widest uppercase">
                   Chibuike Godwin Marvellous
                 </span>
               </div>
             </Link>
 
-            <p className="text-xs sm:text-sm text-[#3E3E42] leading-relaxed max-w-md">
-              Creative strategist, brandpreneur, designpreneur, techpreneur, and youth advocate based in Nigeria.
-              Dedicated to building brands that matter through visual communication design, strategy, and socio-economic empowerment.
+            <p className="text-xs text-zinc-400 font-light leading-relaxed max-w-sm">
+              Brand strategist and visual communications designer driving growth through structured
+              storytelling, sustainable brand systems, and digital literacy across Africa.
             </p>
 
-            <blockquote className="border-l-2 border-[#012A69] pl-3.5 py-1 italic text-[#3E3E42] text-xs sm:text-sm font-serif">
-              &ldquo;Design is not just how it looks. It is what it does.&rdquo;
+            <blockquote className="border-l border-[#C5A880] pl-3 py-0.5 text-xs text-zinc-400 italic font-light">
+              &ldquo;Design is not judged by how it looks, but by what it does.&rdquo;
             </blockquote>
 
-            {/* Social Channels */}
-            <div className="flex items-center gap-2.5 pt-2">
+            {/* Verified Public Channels */}
+            <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://youtube.com"
+                href="https://www.linkedin.com/in/thecreativemharvy/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white border border-[#DDDDDD] flex items-center justify-center text-gray-600 hover:text-red-600 hover:border-[#012A69] hover:shadow-sm transition-all"
-                aria-label="YouTube Channel"
-              >
-                <YoutubeIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://x.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white border border-[#DDDDDD] flex items-center justify-center text-gray-600 hover:text-sky-500 hover:border-[#012A69] hover:shadow-sm transition-all"
-                aria-label="X (Twitter)"
-              >
-                <TwitterIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white border border-[#DDDDDD] flex items-center justify-center text-gray-600 hover:text-blue-600 hover:border-[#012A69] hover:shadow-sm transition-all"
+                className="w-8 h-8 border border-white/15 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white transition-colors"
                 aria-label="LinkedIn"
               >
-                <LinkedinIcon className="w-4 h-4" />
+                <LinkedinIcon className="w-3.5 h-3.5" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.behance.net/thecreativemharvy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white border border-[#DDDDDD] flex items-center justify-center text-gray-600 hover:text-pink-600 hover:border-[#012A69] hover:shadow-sm transition-all"
-                aria-label="Instagram"
+                className="w-8 h-8 border border-white/15 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white transition-colors text-[10px] font-mono font-bold"
+                aria-label="Behance Portfolio"
               >
-                <InstagramIcon className="w-4 h-4" />
+                Bē
               </a>
               <a
-                href="https://wa.me/2347072118506"
+                href="https://www.youtube.com/@thecreativemharvy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white border border-[#DDDDDD] flex items-center justify-center text-gray-600 hover:text-emerald-600 hover:border-[#012A69] hover:shadow-sm transition-all"
+                className="w-8 h-8 border border-white/15 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white transition-colors"
+                aria-label="YouTube Channel"
+              >
+                <YoutubeIcon className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="http://wa.me/+2347072118506"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 border border-white/15 flex items-center justify-center text-zinc-400 hover:text-white hover:border-white transition-colors"
                 aria-label="WhatsApp"
               >
-                <WhatsAppIcon className="w-4 h-4" />
+                <WhatsAppIcon className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
 
           {/* Quick Navigation */}
           <div className="lg:col-span-2 flex flex-col gap-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#012A69] font-proxima">
-              Explore
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-mono">
+              Index
             </span>
-            <ul className="flex flex-col gap-2.5 text-xs sm:text-sm">
+            <ul className="flex flex-col gap-2 text-xs text-zinc-400 font-light">
               <li>
-                <Link href="/" className="hover:text-[#012A69] transition-colors">Home</Link>
+                <Link href="/" className="hover:text-white transition-colors">Home</Link>
               </li>
               <li>
-                <Link href="/work" className="hover:text-[#012A69] transition-colors">Work &amp; Portfolio</Link>
+                <Link href="/work" className="hover:text-white transition-colors">Selected Work</Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-[#012A69] transition-colors">Services &amp; Pricing</Link>
+                <Link href="/services" className="hover:text-white transition-colors">Capabilities</Link>
               </li>
               <li>
-                <Link href="/shop" className="hover:text-[#012A69] transition-colors">Digital Store</Link>
+                <Link href="/blog" className="hover:text-white transition-colors">Field Notes</Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-[#012A69] transition-colors">Articles &amp; Blog</Link>
+                <Link href="/shop" className="hover:text-white transition-colors">The Store</Link>
               </li>
               <li>
-                <Link href="/watch" className="hover:text-[#012A69] transition-colors">Watch &amp; Media</Link>
+                <Link href="/watch" className="hover:text-white transition-colors">Broadcasts</Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#012A69] transition-colors">Contact</Link>
+                <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Details */}
+          {/* Direct Coordinate Details */}
           <div className="lg:col-span-2 flex flex-col gap-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#012A69] font-proxima">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-mono">
               Direct Contact
             </span>
-            <div className="flex flex-col gap-3 text-xs">
+            <div className="flex flex-col gap-2.5 text-xs text-zinc-400 font-light">
               <a
-                href="mailto:hello@mharvy.com.ng"
-                className="flex items-center gap-2 hover:text-[#012A69] transition-colors"
+                href="mailto:talktochibuikemarvellous@gmail.com"
+                className="hover:text-white transition-colors break-all"
               >
-                <Mail className="w-3.5 h-3.5 text-[#012A69] flex-shrink-0" />
-                <span>hello@mharvy.com.ng</span>
+                talktochibuikemarvellous@gmail.com
               </a>
               <a
                 href="tel:+2347072118506"
-                className="flex items-center gap-2 hover:text-[#012A69] transition-colors"
+                className="hover:text-white transition-colors font-mono"
               >
-                <Phone className="w-3.5 h-3.5 text-[#012A69] flex-shrink-0" />
-                <span>+234 707 211 8506</span>
+                +234 707 211 8506
               </a>
-              <div className="flex items-center gap-2 text-gray-500">
-                <MapPin className="w-3.5 h-3.5 text-[#012A69] flex-shrink-0" />
-                <span>Lagos / Port Harcourt, Nigeria</span>
+              <div className="text-zinc-500 pt-1">
+                Aba, Abia State, Nigeria
               </div>
-              <div className="flex items-center gap-2 text-emerald-700 font-medium">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span>Available for Q2/Q3 Bookings</span>
+              <div className="text-[10px] uppercase tracking-wider text-zinc-500 font-mono">
+                Based in Nigeria &bull; Building for Africa &amp; Beyond
               </div>
             </div>
           </div>
 
-          {/* Newsletter Subscribe */}
+          {/* Editorial Dispatch */}
           <div className="lg:col-span-3 flex flex-col gap-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#012A69] font-proxima">
-              The Creative Letter
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-mono">
+              Dispatch
             </span>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              Curated thoughts on brand engineering, design entrepreneurship, and strategy delivered bi-weekly.
+            <p className="text-xs text-zinc-400 font-light leading-relaxed">
+              Curated perspectives on visual communication, brand infrastructure, and technological innovation.
             </p>
 
             {subscribed ? (
-              <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span>You&apos;re subscribed to the Tribe newsletter!</span>
+              <div className="p-3 border border-white/20 bg-white/[0.02] text-xs text-zinc-300">
+                Subscription recorded. Archival dispatches will arrive directly to your inbox.
               </div>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex flex-col gap-2">
+              <form onSubmit={handleSubscribe} className="space-y-2">
                 <input
                   type="email"
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
-                  placeholder="Enter your email"
+                  placeholder="Enter email address"
                   required
-                  className="px-3.5 py-2.5 rounded-lg bg-white border border-[#DDDDDD] text-xs text-[#3E3E42] placeholder:text-gray-400 focus:outline-none focus:border-[#012A69] transition-colors"
+                  className="w-full bg-white/[0.03] border border-white/15 px-3 py-2 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-[#C5A880]"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2.5 rounded-lg btn-mharvy-primary font-bold text-xs flex items-center justify-center gap-2"
+                  className="w-full py-2 bg-white text-black hover:bg-zinc-200 text-xs uppercase tracking-widest font-normal transition-colors"
                 >
-                  <span>Subscribe</span>
-                  <Send className="w-3.5 h-3.5" />
+                  Join the List
                 </button>
               </form>
             )}
           </div>
         </div>
 
-        {/* Bottom Copyright & Badges */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        {/* Bottom Legal / Studio Note */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-500 font-mono">
           <p>
-            &copy; 2026 Chibuike Godwin Marvellous (theCreative Mharvy). All rights reserved.
+            &copy; 2026 Chibuike Godwin Marvellous &bull; theCreative Mharvy
           </p>
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1 text-[11px]">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#012A69]" />
-              Secure Payhip Architecture
+            <a
+              href="https://mharvy.com.ng"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-400 hover:text-white transition-colors inline-flex items-center gap-1"
+            >
+              <span>mharvy.com.ng</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+            <span>&bull;</span>
+            <span className="text-zinc-500">
+              Strategy &bull; Communication &bull; Execution
             </span>
-            <span className="text-gray-300">|</span>
-            <span className="text-[11px]">Top 1% of the World&apos;s 1%</span>
           </div>
         </div>
       </div>
