@@ -23,16 +23,63 @@ export default function ContactPage() {
   const [email, setEmail] = useState("");
   const [scope, setScope] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const recipientEmail = "talktochuibike@gmail.com";
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email || !message) {
+    if (!name.trim() || !email.trim() || !message.trim()) {
       showToast("Please provide your name, email, and inquiry details");
       return;
     }
-    setSubmitted(true);
-    showToast("Inquiry received. Marvellous will respond directly within 24 hours.");
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const subject = scope.trim()
+        ? `Advisory Inquiry: ${scope.trim()} — ${name.trim()}`
+        : `Advisory Inquiry from ${name.trim()}`;
+
+      const response = await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          _replyto: email.trim(),
+          _subject: subject,
+          scope: scope.trim() || "General Advisory",
+          message: message.trim(),
+          _template: "table",
+        }),
+      });
+
+      const data = await response.json().catch(() => null);
+      if (!response.ok || (data && data.success === "false")) {
+        throw new Error(data?.message || "Submission could not be delivered automatically.");
+      }
+
+      setSubmitted(true);
+      setName("");
+      setEmail("");
+      setScope("");
+      setMessage("");
+      showToast(`Inquiry dispatched to ${recipientEmail}.`);
+    } catch {
+      setSubmitError(
+        `Direct transmission was blocked by your network. You can send directly to ${recipientEmail}.`
+      );
+      showToast(`Unable to auto-send — please email ${recipientEmail} directly.`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -288,11 +335,29 @@ export default function ContactPage() {
 
                     <button
                       type="submit"
-                      className="w-full py-3.5 border border-white/40 hover:border-white text-white hover:bg-white hover:text-black font-sans text-[11px] font-semibold tracking-[0.22em] uppercase transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg"
+                      disabled={isSubmitting}
+                      className="w-full py-3.5 border border-white/40 hover:border-white disabled:opacity-50 disabled:cursor-not-allowed text-white hover:bg-white hover:text-black font-sans text-[11px] font-semibold tracking-[0.22em] uppercase transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg"
                     >
-                      <span>Transmit Inquiry</span>
+                      <span>{isSubmitting ? "Transmitting..." : "Transmit Inquiry"}</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                     </button>
+
+                    {submitError && (
+                      <div className="p-3 border border-white/20 bg-zinc-950 text-center space-y-2">
+                        <p className="text-[11px] font-mono text-zinc-300">{submitError}</p>
+                        <a
+                          href={`mailto:${recipientEmail}?subject=${encodeURIComponent(
+                            scope ? `Advisory Inquiry: ${scope}` : `Advisory Inquiry from ${name}`
+                          )}&body=${encodeURIComponent(
+                            `Name: ${name}\nEmail: ${email}\nScope: ${scope || "General Advisory"}\n\n${message}`
+                          )}`}
+                          className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-white underline"
+                        >
+                          <span>Open Email Client ({recipientEmail})</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
+                    )}
 
                     <p className="text-[10px] font-mono text-zinc-500 text-center">
                       Direct executive response within 24 business hours.
