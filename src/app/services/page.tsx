@@ -173,16 +173,22 @@ export default function ServicesPage() {
         </div>
 
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
-          <span className="text-[10px] font-mono tracking-[0.28em] text-white/40 uppercase block mb-3">
+          <span className="animate-hero-rise text-[10px] font-mono tracking-[0.28em] text-white/40 uppercase block mb-3">
             EXECUTIVE PROFILE &amp; COMPETENCIES
           </span>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.12em] text-white uppercase leading-[1.3] font-sans max-w-2xl">
+          <h1
+            style={{ animationDelay: "100ms" }}
+            className="animate-hero-rise text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.12em] text-white uppercase leading-[1.3] font-sans max-w-2xl"
+          >
             Strategic Architecture, <br />
             <span className="font-semibold text-white/95">Leadership &amp; Governance.</span>
           </h1>
 
-          <p className="text-xs sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-2xl mt-4">
+          <p
+            style={{ animationDelay: "200ms" }}
+            className="animate-hero-rise text-xs sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-2xl mt-4"
+          >
             Brand strategist and visual communications designer with a track record of rebuilding and scaling mission-driven organizations, tech summits, and digital platforms through strategic branding and operational leadership.
           </p>
         </div>

@@ -10,6 +10,7 @@ import {
   EditorialCornerCrosshairs,
   CreativeScribbleLoop,
 } from "@/components/ArtisticVisuals";
+import { Reveal } from "@/components/Reveal";
 
 export default function BlogPage() {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
@@ -33,16 +34,22 @@ export default function BlogPage() {
         </div>
 
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
-          <span className="text-[10px] font-mono tracking-[0.28em] text-white/40 uppercase block mb-3">
+          <span className="animate-hero-rise text-[10px] font-mono tracking-[0.28em] text-white/40 uppercase block mb-3">
             FIELD NOTES &amp; ARCHIVAL WRITING
           </span>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.12em] text-white uppercase leading-[1.3] font-sans max-w-2xl">
+          <h1
+            style={{ animationDelay: "100ms" }}
+            className="animate-hero-rise text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.12em] text-white uppercase leading-[1.3] font-sans max-w-2xl"
+          >
             Dispatches on Tech, <br />
             <span className="font-semibold text-white/95">Design &amp; Leadership.</span>
           </h1>
 
-          <p className="text-xs sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-xl mt-4">
+          <p
+            style={{ animationDelay: "200ms" }}
+            className="animate-hero-rise text-xs sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-xl mt-4"
+          >
             First-hand reflections from the rooms we build, summits we direct, and systems we scale across Africa and beyond.
           </p>
         </div>
@@ -57,32 +64,34 @@ export default function BlogPage() {
 
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
-          <div className="divide-y divide-white/10 border-y border-white/10">
-            {posts.map((post) => (
-              <div
-                key={post.id}
-                onClick={() => setSelectedPost(post)}
-                className="py-7 sm:py-8 flex flex-col md:flex-row md:items-center justify-between gap-4 group cursor-pointer hover:bg-zinc-950 px-4 -mx-4 transition-colors"
-              >
-                <div className="flex-1 pr-4">
-                  <span className="text-[10px] font-mono text-zinc-500 block mb-1">
-                    {post.publishDate}
-                  </span>
-                  <h2 className="text-base sm:text-lg font-normal text-white group-hover:text-white transition-colors mb-2">
-                    {post.title}
-                  </h2>
-                  <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-2 max-w-2xl">
-                    {post.excerpt}
-                  </p>
-                </div>
+          <Reveal>
+            <div className="divide-y divide-white/10 border-y border-white/10">
+              {posts.map((post) => (
+                <div
+                  key={post.id}
+                  onClick={() => setSelectedPost(post)}
+                  className="py-7 sm:py-8 flex flex-col md:flex-row md:items-center justify-between gap-4 group cursor-pointer hover:bg-zinc-950 px-4 -mx-4 transition-colors"
+                >
+                  <div className="flex-1 pr-4">
+                    <span className="text-[10px] font-mono text-zinc-500 block mb-1">
+                      {post.publishDate}
+                    </span>
+                    <h2 className="text-base sm:text-lg font-normal text-white group-hover:translate-x-1 transition-transform duration-300 mb-2">
+                      {post.title}
+                    </h2>
+                    <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-2 max-w-2xl">
+                      {post.excerpt}
+                    </p>
+                  </div>
 
-                <div className="flex items-center gap-4 text-xs font-mono text-zinc-500 group-hover:text-white transition-colors flex-shrink-0 self-start md:self-auto">
-                  <span>{post.readTime}</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  <div className="flex items-center gap-4 text-xs font-mono text-zinc-500 group-hover:text-white transition-colors flex-shrink-0 self-start md:self-auto">
+                    <span>{post.readTime}</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
 
         </div>
       </section>

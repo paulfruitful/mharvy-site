@@ -24,14 +24,8 @@ import {
   EditorialCornerCrosshairs,
   EngagementRibbonLoop,
 } from "@/components/ArtisticVisuals";
-
-const brandLogos = [
-  { name: "AJMAX", src: "/brands/AJMAX.webp" },
-  { name: "HAUS9", src: "/brands/HAUS9.webp" },
-  { name: "MINDSET HACK CONFERENCE", src: "/brands/MINDSET HACK CONFERENCE.webp" },
-  { name: "SPORTS FIESTA", src: "/brands/SPORTS FIESTA.webp" },
-  { name: "SWILL", src: "/brands/SWILL.webp" },
-];
+import { PartnerLogos } from "@/components/PartnerLogos";
+import { Reveal } from "@/components/Reveal";
 
 const pillars = [
   {
@@ -81,24 +75,29 @@ export default function HomePage() {
         </div>
 
         {/* Architectural Guide Ticks (Matching Wireframe at 44%, 58%, 70%) */}
-        <div className="absolute top-0 left-[44%] w-[1px] h-8 sm:h-10 bg-white/20 hidden md:block z-20 pointer-events-none" />
-        <div className="absolute top-0 left-[58%] w-[1px] h-8 sm:h-10 bg-white/20 hidden md:block z-20 pointer-events-none" />
-        <div className="absolute top-0 left-[70%] w-[1px] h-8 sm:h-10 bg-white/20 hidden md:block z-20 pointer-events-none" />
+        <div className="absolute top-0 left-[44%] w-[1px] h-8 sm:h-10 bg-white/25 hidden md:block z-20 pointer-events-none animate-hairline-breathe" />
+        <div className="absolute top-0 left-[58%] w-[1px] h-8 sm:h-10 bg-white/25 hidden md:block z-20 pointer-events-none animate-hairline-breathe [animation-delay:1.2s]" />
+        <div className="absolute top-0 left-[70%] w-[1px] h-8 sm:h-10 bg-white/25 hidden md:block z-20 pointer-events-none animate-hairline-breathe [animation-delay:2.4s]" />
 
         <div className="max-w-[1280px] w-full mx-auto px-6 sm:px-10 lg:px-16 h-full flex flex-col lg:flex-row items-center justify-between relative z-10 pt-20 pb-16">
           
           {/* Left Column: Small, Restrained, Classic Premium Typography */}
           <div className="w-full lg:w-[52%] flex flex-col items-start justify-center h-full text-left py-6 z-20">
             
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.14em] text-white uppercase leading-[1.3] font-sans">
+            <h1
+              style={{ animationDelay: "120ms" }}
+              className="animate-hero-rise text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.14em] text-white uppercase leading-[1.3] font-sans"
+            >
               Building Brands <br />
               <span className="font-semibold text-white/95">That Shape Technology &amp; Innovation.</span>
             </h1>
 
             {/* Subtle Artistic Underline Accent */}
-            <ArtisticUnderline className="mt-2.5 opacity-30" />
+            <div style={{ animationDelay: "260ms" }} className="animate-hero-rise">
+              <ArtisticUnderline className="mt-2.5 opacity-60" />
+            </div>
 
-            <div className="mt-8 sm:mt-10">
+            <div style={{ animationDelay: "380ms" }} className="animate-hero-rise mt-8 sm:mt-10">
               <Link
                 href="/work"
                 className="inline-flex items-center justify-center px-7 sm:px-8 py-3 sm:py-3.5 border border-white/40 hover:border-white text-white hover:bg-white hover:text-black font-sans text-[11px] font-semibold tracking-[0.22em] uppercase transition-all duration-300 group shadow-lg"
@@ -112,7 +111,10 @@ export default function HomePage() {
           </div>
 
           {/* Right Column: Blended Portrait (Image B) */}
-          <div className="absolute lg:relative right-0 bottom-0 h-[65vh] sm:h-[75vh] lg:h-[86vh] xl:h-[90vh] max-h-[880px] w-full lg:w-[48%] flex items-end justify-center lg:justify-end pointer-events-none z-10 opacity-30 lg:opacity-100 transition-opacity">
+          <div
+            style={{ animationDelay: "220ms" }}
+            className="animate-hero-rise absolute lg:relative right-0 bottom-0 h-[65vh] sm:h-[75vh] lg:h-[86vh] xl:h-[90vh] max-h-[880px] w-full lg:w-[48%] flex items-end justify-center lg:justify-end pointer-events-none z-10 opacity-30 lg:opacity-100 transition-opacity"
+          >
             <div className="relative h-full w-full max-w-[460px] sm:max-w-[520px] lg:max-w-[560px] xl:max-w-[620px] flex items-end">
               <Image
                 src="/mharvy-portrait-b.png"
@@ -156,30 +158,18 @@ export default function HomePage() {
 
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-white/10">
-            <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase">
-              SELECTED VENTURES &amp; PARTNERS
-            </span>
-            <span className="text-[11px] font-sans text-zinc-500 font-light">
-              Collaborations across technology, media &amp; enterprise
-            </span>
-          </div>
+          <Reveal>
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-white/10">
+              <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase">
+                SELECTED VENTURES &amp; PARTNERS
+              </span>
+              <span className="text-[11px] font-sans text-zinc-500 font-light">
+                Collaborations across technology, media &amp; enterprise
+              </span>
+            </div>
+          </Reveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-12 items-center justify-items-center">
-            {brandLogos.map((brand) => (
-              <div
-                key={brand.name}
-                className="relative h-7 sm:h-8 w-28 sm:w-36 flex items-center justify-center opacity-45 hover:opacity-100 transition-opacity duration-300"
-              >
-                <Image
-                  src={brand.src}
-                  alt={brand.name}
-                  fill
-                  className="object-contain filter brightness-0 invert"
-                />
-              </div>
-            ))}
-          </div>
+          <PartnerLogos />
 
         </div>
       </section>
@@ -203,39 +193,43 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
           {/* Header */}
-          <div className="mb-14 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-1.5">
-                CAPABILITIES
-              </span>
-              <h2 className="text-base sm:text-lg md:text-xl font-normal tracking-wide text-white uppercase font-sans">
-                Technology, Architecture &amp; Scale
-              </h2>
+          <Reveal>
+            <div className="mb-14 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-1.5">
+                  CAPABILITIES
+                </span>
+                <h2 className="text-base sm:text-lg md:text-xl font-normal tracking-wide text-white uppercase font-sans">
+                  Technology, Architecture &amp; Scale
+                </h2>
+              </div>
+              <p className="text-xs text-zinc-400 font-light max-w-md">
+                Bridging digital platform engineering with high-trust commercial brand positioning.
+              </p>
             </div>
-            <p className="text-xs text-zinc-400 font-light max-w-md">
-              Bridging digital platform engineering with high-trust commercial brand positioning.
-            </p>
-          </div>
+          </Reveal>
 
           {/* Minimal 4-Grid: Zero Numbering, Zero Categorization Tags */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10 border border-white/10 backdrop-blur-xs">
-            {pillars.map((pillar) => (
-              <div
-                key={pillar.title}
-                className="p-6 sm:p-8 flex flex-col justify-between bg-black/80 hover:bg-zinc-950 transition-colors duration-200"
-              >
-                <div>
-                  <h3 className="text-sm font-medium text-white tracking-normal mb-3 font-sans">
-                    {pillar.title}
-                  </h3>
+          <Reveal delay={100}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/10 border border-white/10 backdrop-blur-xs">
+              {pillars.map((pillar) => (
+                <div
+                  key={pillar.title}
+                  className="p-6 sm:p-8 flex flex-col justify-between bg-black/80 hover:bg-zinc-950 transition-colors duration-300 group"
+                >
+                  <div>
+                    <h3 className="text-sm font-medium text-white tracking-normal mb-3 font-sans group-hover:translate-x-0.5 transition-transform duration-300">
+                      {pillar.title}
+                    </h3>
 
-                  <p className="text-xs text-zinc-400 font-light leading-relaxed">
-                    {pillar.desc}
-                  </p>
+                    <p className="text-xs text-zinc-400 font-light leading-relaxed">
+                      {pillar.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
 
         </div>
       </section>
@@ -257,68 +251,71 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
           {/* Header */}
-          <div className="mb-14 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-1.5">
-                SELECTED WORK
-              </span>
-              <h2 className="text-base sm:text-lg md:text-xl font-normal tracking-wide text-white uppercase font-sans">
-                Systems &amp; Case Studies
-              </h2>
+          <Reveal>
+            <div className="mb-14 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-1.5">
+                  SELECTED WORK
+                </span>
+                <h2 className="text-base sm:text-lg md:text-xl font-normal tracking-wide text-white uppercase font-sans">
+                  Systems &amp; Case Studies
+                </h2>
+              </div>
+              <Link
+                href="/work"
+                className="inline-flex items-center gap-1.5 text-xs font-mono tracking-wider text-white/70 hover:text-white transition-colors group"
+              >
+                <span>View All Projects</span>
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
             </div>
-            <Link
-              href="/work"
-              className="inline-flex items-center gap-1.5 text-xs font-mono tracking-wider text-white/70 hover:text-white transition-colors"
-            >
-              <span>View All Projects</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
+          </Reveal>
 
           {/* Minimalist 2-Column Grid: Zero Numbering, Zero Category Tags */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {featuredProjects.map((project) => (
-              <div
-                key={project.id}
-                onClick={() => setSelectedProject(project)}
-                className="group cursor-pointer p-6 sm:p-8 bg-black/80 backdrop-blur-xs border border-white/10 hover:border-white/40 transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
-                    <span className="text-[10px] font-mono tracking-widest text-white/40 uppercase">
-                      Client: {project.client}
-                    </span>
-                    <span className="text-[10px] font-mono text-zinc-500">
-                      {project.year}
-                    </span>
-                  </div>
-
-                  <h3 className="text-base sm:text-lg font-medium text-white tracking-normal font-sans group-hover:text-white transition-colors mb-3">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-2">
-                    {project.description}
-                  </p>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
-                  <div className="flex gap-2">
-                    {project.deliverables.slice(0, 2).map((d) => (
-                      <span
-                        key={d}
-                        className="text-[10px] font-mono text-zinc-500"
-                      >
-                        {d} &bull;
+            {featuredProjects.map((project, idx) => (
+              <Reveal key={project.id} delay={idx * 80}>
+                <div
+                  onClick={() => setSelectedProject(project)}
+                  className="h-full group cursor-pointer p-6 sm:p-8 bg-black/80 backdrop-blur-xs border border-white/10 hover:border-white/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                      <span className="text-[10px] font-mono tracking-widest text-white/40 uppercase">
+                        Client: {project.client}
                       </span>
-                    ))}
+                      <span className="text-[10px] font-mono text-zinc-500">
+                        {project.year}
+                      </span>
+                    </div>
+
+                    <h3 className="text-base sm:text-lg font-medium text-white tracking-normal font-sans group-hover:text-white transition-colors mb-3">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-2">
+                      {project.description}
+                    </p>
                   </div>
 
-                  <span className="text-[11px] font-mono tracking-wider text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all inline-flex items-center gap-1">
-                    Inspect &rarr;
-                  </span>
+                  <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+                    <div className="flex gap-2">
+                      {project.deliverables.slice(0, 2).map((d) => (
+                        <span
+                          key={d}
+                          className="text-[10px] font-mono text-zinc-500"
+                        >
+                          {d} &bull;
+                        </span>
+                      ))}
+                    </div>
+
+                    <span className="text-[11px] font-mono tracking-wider text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all inline-flex items-center gap-1">
+                      Inspect &rarr;
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
@@ -341,48 +338,52 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
           {/* Header */}
-          <div className="mb-14 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-1.5">
-                FIELD NOTES
-              </span>
-              <h2 className="text-base sm:text-lg md:text-xl font-normal tracking-wide text-white uppercase font-sans">
-                Dispatches on Tech, Design &amp; Leadership
-              </h2>
+          <Reveal>
+            <div className="mb-14 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-1.5">
+                  FIELD NOTES
+                </span>
+                <h2 className="text-base sm:text-lg md:text-xl font-normal tracking-wide text-white uppercase font-sans">
+                  Dispatches on Tech, Design &amp; Leadership
+                </h2>
+              </div>
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-1.5 text-xs font-mono tracking-wider text-white/70 hover:text-white transition-colors group"
+              >
+                <span>Explore All Articles</span>
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
             </div>
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-1.5 text-xs font-mono tracking-wider text-white/70 hover:text-white transition-colors"
-            >
-              <span>Explore All Articles</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
+          </Reveal>
 
           {/* Minimalist Editorial Row List: Zero Categorization Labels, Just Date & Title */}
-          <div className="divide-y divide-white/10 border-y border-white/10">
-            {featuredPosts.map((post) => (
-              <Link
-                key={post.id}
-                href={`/blog#${post.slug}`}
-                className="py-5 sm:py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-zinc-950 px-3 sm:px-4 -mx-3 sm:-mx-4 transition-colors duration-200"
-              >
-                <div className="flex-1">
-                  <span className="text-[10px] font-mono text-zinc-500 block mb-1">
-                    {post.publishDate}
-                  </span>
-                  <h3 className="text-sm sm:text-base font-normal text-white group-hover:text-white transition-colors">
-                    {post.title}
-                  </h3>
-                </div>
+          <Reveal delay={90}>
+            <div className="divide-y divide-white/10 border-y border-white/10">
+              {featuredPosts.map((post) => (
+                <Link
+                  key={post.id}
+                  href={`/blog#${post.slug}`}
+                  className="py-5 sm:py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-zinc-950 px-3 sm:px-4 -mx-3 sm:-mx-4 transition-colors duration-200"
+                >
+                  <div className="flex-1">
+                    <span className="text-[10px] font-mono text-zinc-500 block mb-1">
+                      {post.publishDate}
+                    </span>
+                    <h3 className="text-sm sm:text-base font-normal text-white group-hover:translate-x-1 transition-transform duration-300">
+                      {post.title}
+                    </h3>
+                  </div>
 
-                <div className="flex items-center gap-4 text-xs font-mono text-zinc-500 group-hover:text-white transition-colors">
-                  <span>{post.readTime}</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            ))}
-          </div>
+                  <div className="flex items-center gap-4 text-xs font-mono text-zinc-500 group-hover:text-white transition-colors">
+                    <span>{post.readTime}</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
 
         </div>
       </section>
@@ -401,58 +402,59 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
           {/* Header */}
-          <div className="mb-14 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-1.5">
-                PUBLICATIONS &amp; EDITIONS
-              </span>
-              <h2 className="text-base sm:text-lg md:text-xl font-normal tracking-wide text-white uppercase font-sans">
-                Frameworks for Builders
-              </h2>
+          <Reveal>
+            <div className="mb-14 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div>
+                <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 uppercase block mb-1.5">
+                  PUBLICATIONS &amp; EDITIONS
+                </span>
+                <h2 className="text-base sm:text-lg md:text-xl font-normal tracking-wide text-white uppercase font-sans">
+                  Frameworks for Builders
+                </h2>
+              </div>
+              <Link
+                href="/shop"
+                className="inline-flex items-center gap-1.5 text-xs font-mono tracking-wider text-white/70 hover:text-white transition-colors group"
+              >
+                <span>View Full Collection</span>
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
             </div>
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-1.5 text-xs font-mono tracking-wider text-white/70 hover:text-white transition-colors"
-            >
-              <span>View Full Collection</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
+          </Reveal>
 
           {/* Clean 3-Item Grid: Zero Categorization Tags */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {featuredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="group p-6 sm:p-7 bg-black/80 backdrop-blur-xs border border-white/10 hover:border-white/40 transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <h3
-                    onClick={() => setSelectedProduct(product)}
-                    className="text-sm font-medium text-white hover:underline cursor-pointer font-sans mb-2"
-                  >
-                    {product.title}
-                  </h3>
+            {featuredProducts.map((product, idx) => (
+              <Reveal key={product.id} delay={idx * 90}>
+                <div className="h-full group p-6 sm:p-7 bg-black/80 backdrop-blur-xs border border-white/10 hover:border-white/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <h3
+                      onClick={() => setSelectedProduct(product)}
+                      className="text-sm font-medium text-white hover:underline cursor-pointer font-sans mb-2"
+                    >
+                      {product.title}
+                    </h3>
 
-                  <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-2">
-                    {product.tagline}
-                  </p>
+                    <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-2">
+                      {product.tagline}
+                    </p>
+                  </div>
+
+                  <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+                    <span className="text-xs font-mono font-medium text-white">
+                      {formatPrice(product.priceNGN, product.priceUSD)}
+                    </span>
+
+                    <button
+                      onClick={() => addToCart(product, 1)}
+                      className="px-4 py-2 border border-white/30 hover:border-white text-white hover:bg-white hover:text-black text-[10px] font-mono tracking-wider uppercase transition-all flex items-center gap-1.5"
+                    >
+                      <ShoppingBag className="w-3 h-3" />
+                      <span>Acquire</span>
+                    </button>
+                  </div>
                 </div>
-
-                <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs font-mono font-medium text-white">
-                    {formatPrice(product.priceNGN, product.priceUSD)}
-                  </span>
-
-                  <button
-                    onClick={() => addToCart(product, 1)}
-                    className="px-4 py-2 border border-white/30 hover:border-white text-white hover:bg-white hover:text-black text-[10px] font-mono tracking-wider uppercase transition-all flex items-center gap-1.5"
-                  >
-                    <ShoppingBag className="w-3 h-3" />
-                    <span>Acquire</span>
-                  </button>
-                </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
@@ -471,25 +473,27 @@ export default function HomePage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-10 bg-white/20 pointer-events-none" />
 
         <div className="max-w-2xl mx-auto px-6 relative z-10">
-          <span className="text-[10px] font-mono tracking-[0.28em] text-white/40 uppercase block mb-3">
-            ENGAGEMENT
-          </span>
+          <Reveal>
+            <span className="text-[10px] font-mono tracking-[0.28em] text-white/40 uppercase block mb-3">
+              ENGAGEMENT
+            </span>
 
-          <h2 className="text-lg sm:text-xl md:text-2xl font-normal tracking-wide text-white uppercase font-sans mb-4">
-            Start a Conversation
-          </h2>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-normal tracking-wide text-white uppercase font-sans mb-4">
+              Start a Conversation
+            </h2>
 
-          <p className="text-xs sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-lg mx-auto mb-8">
-            Available for venture architecture, high-growth tech advisory, and keynote leadership worldwide.
-          </p>
+            <p className="text-xs sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-lg mx-auto mb-8">
+              Available for venture architecture, high-growth tech advisory, and keynote leadership worldwide.
+            </p>
 
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 hover:border-white text-white hover:bg-white hover:text-black font-sans text-[11px] font-semibold tracking-[0.22em] uppercase transition-all duration-300 group shadow-lg"
-          >
-            <span>Get in Touch</span>
-            <ArrowRight className="w-3.5 h-3.5 ml-2.5 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 hover:border-white text-white hover:bg-white hover:text-black font-sans text-[11px] font-semibold tracking-[0.22em] uppercase transition-all duration-300 group shadow-lg"
+            >
+              <span>Get in Touch</span>
+              <ArrowRight className="w-3.5 h-3.5 ml-2.5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </Reveal>
         </div>
       </section>
 

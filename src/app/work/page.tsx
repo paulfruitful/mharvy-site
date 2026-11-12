@@ -11,6 +11,7 @@ import {
   EditorialCornerCrosshairs,
   CreativeScribbleLoop,
 } from "@/components/ArtisticVisuals";
+import { Reveal } from "@/components/Reveal";
 
 export default function WorkPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -35,16 +36,22 @@ export default function WorkPage() {
         </div>
 
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
-          <span className="text-[10px] font-mono tracking-[0.28em] text-white/40 uppercase block mb-3">
+          <span className="animate-hero-rise text-[10px] font-mono tracking-[0.28em] text-white/40 uppercase block mb-3">
             PORTFOLIO &amp; ENGAGEMENTS
           </span>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.12em] text-white uppercase leading-[1.3] font-sans max-w-2xl">
+          <h1
+            style={{ animationDelay: "100ms" }}
+            className="animate-hero-rise text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] font-light tracking-[0.12em] text-white uppercase leading-[1.3] font-sans max-w-2xl"
+          >
             Selected Work &amp; <br />
             <span className="font-semibold text-white/95">Strategic Architecture.</span>
           </h1>
 
-          <p className="text-xs sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-xl mt-4">
+          <p
+            style={{ animationDelay: "200ms" }}
+            className="animate-hero-rise text-xs sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-xl mt-4"
+          >
             A curated record of large-scale technology summits, pan-African conferences, mobile applications, and mission-driven venture rebuilds.
           </p>
         </div>
@@ -62,48 +69,49 @@ export default function WorkPage() {
         <div className="max-w-[1280px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                onClick={() => setSelectedProject(project)}
-                className="group cursor-pointer p-6 sm:p-8 bg-black/80 backdrop-blur-xs border border-white/10 hover:border-white/40 transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
-                    <span className="text-[10px] font-mono tracking-widest text-white/40 uppercase">
-                      Client: {project.client}
-                    </span>
-                    <span className="text-[10px] font-mono text-zinc-500">
-                      {project.year}
-                    </span>
-                  </div>
-
-                  <h2 className="text-base sm:text-lg font-medium text-white tracking-normal font-sans group-hover:text-white transition-colors mb-3">
-                    {project.title}
-                  </h2>
-
-                  <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-3">
-                    {project.description}
-                  </p>
-                </div>
-
-                <div className="pt-6 mt-8 border-t border-white/10 flex items-center justify-between">
-                  <div className="flex flex-wrap gap-2">
-                    {project.deliverables.slice(0, 2).map((d) => (
-                      <span
-                        key={d}
-                        className="text-[10px] font-mono text-zinc-500"
-                      >
-                        {d} &bull;
+            {projects.map((project, idx) => (
+              <Reveal key={project.id} delay={(idx % 2) * 90}>
+                <div
+                  onClick={() => setSelectedProject(project)}
+                  className="h-full group cursor-pointer p-6 sm:p-8 bg-black/80 backdrop-blur-xs border border-white/10 hover:border-white/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                      <span className="text-[10px] font-mono tracking-widest text-white/40 uppercase">
+                        Client: {project.client}
                       </span>
-                    ))}
+                      <span className="text-[10px] font-mono text-zinc-500">
+                        {project.year}
+                      </span>
+                    </div>
+
+                    <h2 className="text-base sm:text-lg font-medium text-white tracking-normal font-sans group-hover:text-white transition-colors mb-3">
+                      {project.title}
+                    </h2>
+
+                    <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-3">
+                      {project.description}
+                    </p>
                   </div>
 
-                  <span className="text-[11px] font-mono tracking-wider text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all inline-flex items-center gap-1">
-                    Inspect &rarr;
-                  </span>
+                  <div className="pt-6 mt-8 border-t border-white/10 flex items-center justify-between">
+                    <div className="flex flex-wrap gap-2">
+                      {project.deliverables.slice(0, 2).map((d) => (
+                        <span
+                          key={d}
+                          className="text-[10px] font-mono text-zinc-500"
+                        >
+                          {d} &bull;
+                        </span>
+                      ))}
+                    </div>
+
+                    <span className="text-[11px] font-mono tracking-wider text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all inline-flex items-center gap-1">
+                      Inspect &rarr;
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
