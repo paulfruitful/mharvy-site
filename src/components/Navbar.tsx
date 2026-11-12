@@ -35,9 +35,9 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Selected Work", href: "/work" },
-    { name: "Capabilities", href: "/services" },
-    { name: "Field Notes", href: "/blog" },
-    { name: "The Store", href: "/shop" },
+    { name: "Skill", href: "/services" },
+    { name: "Blog", href: "/blog" },
+    { name: "Shop", href: "/shop" },
     { name: "Broadcasts", href: "/watch" },
     { name: "Inquiries", href: "/contact" },
   ];
@@ -52,15 +52,15 @@ export function Navbar() {
           : "bg-black/95 backdrop-blur-md border-b border-white/15 shadow-2xl"
       }`}
     >
-      <div className="relative max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-14 h-16 sm:h-20 flex items-center justify-between">
+      <div className="relative max-w-[1360px] mx-auto px-6 sm:px-8 lg:px-10 h-16 sm:h-20 flex items-center justify-between gap-4">
         
         {/* Left: Favicon Logo & Classic Editorial Wordmark */}
         <Link
           href="/"
-          className="group flex items-center gap-3.5 transition-transform hover:opacity-85"
+          className="group flex items-center gap-3 flex-shrink-0 transition-transform hover:opacity-85"
           aria-label="theCreative Mharvy — Home"
         >
-          <div className="relative w-9 h-6 sm:w-10 sm:h-7 flex items-center justify-center flex-shrink-0">
+          <div className="relative w-8 h-6 sm:w-9 sm:h-6 flex items-center justify-center flex-shrink-0">
             <Image
               src="/logo/My%20Creative%20Mharvy%20Secondary%20Logo.svg"
               alt="theCreative Mharvy Logo"
@@ -71,25 +71,25 @@ export function Navbar() {
             />
           </div>
 
-          <div className="flex flex-col">
-            <span className="font-serif-luxury italic text-sm sm:text-base text-white tracking-wide leading-none">
+          <div className="flex flex-col whitespace-nowrap">
+            <span className="font-serif-luxury italic text-sm sm:text-base text-white tracking-wide leading-none whitespace-nowrap">
               theCreative Mharvy
             </span>
-            <span className="text-[9px] uppercase tracking-[0.28em] text-white/40 font-sans mt-0.5 leading-none">
+            <span className="text-[9px] uppercase tracking-[0.26em] text-white/40 font-sans mt-0.5 leading-none whitespace-nowrap">
               Edition 2026
             </span>
           </div>
         </Link>
 
         {/* Center: Classic Vintage Editorial Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-[12px] uppercase tracking-[0.24em] font-sans transition-all duration-300 relative group py-1 ${
+                className={`text-[11px] uppercase tracking-[0.18em] xl:tracking-[0.22em] font-sans whitespace-nowrap transition-all duration-300 relative group py-1 ${
                   isActive ? "text-white font-medium" : "text-white/60 hover:text-white"
                 }`}
               >
@@ -106,7 +106,7 @@ export function Navbar() {
         </nav>
 
         {/* Right: Vintage Inquiries Action & Bag */}
-        <div className="flex items-center gap-4 sm:gap-6">
+        <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
           
           {/* Shopping Bag Icon */}
           <button
@@ -125,10 +125,10 @@ export function Navbar() {
           {/* Classic Vintage Rectangular Action Button */}
           <Link
             href="/contact"
-            className="hidden sm:inline-flex items-center justify-center px-5 py-2.5 border border-white/40 hover:border-white text-white hover:bg-white hover:text-black text-[11px] font-semibold tracking-[0.22em] uppercase transition-all duration-300 font-sans group shadow-sm"
+            className="hidden sm:inline-flex items-center justify-center px-3.5 py-2 border border-white/40 hover:border-white text-white hover:bg-white hover:text-black text-[10px] font-semibold tracking-[0.14em] xl:tracking-[0.16em] uppercase whitespace-nowrap transition-all duration-300 font-sans group shadow-sm"
           >
             <span>Start a Conversation</span>
-            <ArrowRight className="w-3 h-3 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+            <ArrowRight className="w-3 h-3 ml-1.5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
 
           {/* Mobile Hamburger Menu Toggle */}
