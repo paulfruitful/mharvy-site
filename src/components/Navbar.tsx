@@ -75,9 +75,7 @@ export function Navbar() {
             <span className="font-serif-luxury italic text-sm sm:text-base text-white tracking-wide leading-none whitespace-nowrap">
               theCreative Mharvy
             </span>
-            <span className="text-[9px] uppercase tracking-[0.26em] text-white/40 font-sans mt-0.5 leading-none whitespace-nowrap">
-              Edition 2026
-            </span>
+           
           </div>
         </Link>
 
