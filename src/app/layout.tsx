@@ -14,13 +14,17 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mharvy.com.ng"),
   title: "Chibuike Godwin Marvellous | Top 1% of the world's 1% - theCreative Mharvy",
   description:
-    "Discover courses, toolkits, free resources & more from Chibuike Godwin Marvellous (theCreativeMharvy). Build, innovate & lead with creativity & strategy. Shop now!",
+    "Creative Director | Brand Strategist | Special Adviser to the President on Media, Technology & Innovation, IHRPS Nigeria | Digital Literacy & Youth Development Advocate.",
   keywords: [
     "Chibuike Godwin Marvellous",
     "theCreative Mharvy",
     "Top 1% of the world's 1%",
-    "Visual Communications Designer",
+    "Creative Director",
     "Brand Strategist Nigeria",
+    "IHRPS Nigeria",
+    "Special Adviser on Media, Technology & Innovation",
+    "Digital Literacy & Youth Development Advocate",
+    "Visual Communications Designer",
     "Designing the BuyOne App Experience",
     "Digital Launchpad",
     "Success Engineered",
@@ -38,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Chibuike Godwin Marvellous | Top 1% of the world's 1% - theCreative Mharvy",
     description:
-      "Discover courses, toolkits, free resources & more from Chibuike Godwin Marvellous (theCreativeMharvy). Build, innovate & lead with creativity & strategy. Shop now!",
+      "Creative Director | Brand Strategist | Special Adviser to the President on Media, Technology & Innovation, IHRPS Nigeria | Digital Literacy & Youth Development Advocate.",
     url: "https://mharvy.com.ng",
     siteName: "Chibuike Godwin Marvellous | Top 1% of the world's 1% - theCreative Mharvy",
     images: [
@@ -56,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Chibuike Godwin Marvellous | Top 1% of the world's 1% - theCreative Mharvy",
     description:
-      "Discover courses, toolkits, free resources & more from Chibuike Godwin Marvellous (theCreativeMharvy). Build, innovate & lead with creativity & strategy. Shop now!",
+      "Creative Director | Brand Strategist | Special Adviser to the President on Media, Technology & Innovation, IHRPS Nigeria | Digital Literacy & Youth Development Advocate.",
     images: ["/og-image.png"],
   },
 };

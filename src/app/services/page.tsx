@@ -187,9 +187,16 @@ export default function ServicesPage() {
 
           <p
             style={{ animationDelay: "200ms" }}
-            className="animate-hero-rise text-xs sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-2xl mt-4"
+            className="animate-hero-rise text-xs sm:text-[13px] text-zinc-300 font-light leading-relaxed max-w-2xl mt-4"
           >
-            Brand strategist and visual communications designer with a track record of rebuilding and scaling mission-driven organizations, tech summits, and digital platforms through strategic branding and operational leadership.
+            Creative Director | Brand Strategist | Special Adviser to the President on Media, Technology &amp; Innovation, IHRPS Nigeria | Digital Literacy &amp; Youth Development Advocate
+          </p>
+
+          <p
+            style={{ animationDelay: "260ms" }}
+            className="animate-hero-rise text-xs text-zinc-500 font-light leading-relaxed max-w-2xl mt-2.5"
+          >
+            Track record of rebuilding and scaling mission-driven organizations, tech summits, and digital platforms through strategic branding and operational leadership.
           </p>
         </div>
       </section>

@@ -57,8 +57,9 @@ export function Footer() {
             </Link>
 
             <p className="text-xs text-zinc-400 font-light leading-relaxed max-w-sm">
-              Brand strategist and visual communications designer driving growth through structured
-              storytelling, sustainable brand systems, and digital literacy across Africa.
+              Creative Director | Brand Strategist | Special Adviser to the President on Media,
+              Technology &amp; Innovation, IHRPS Nigeria | Digital Literacy &amp; Youth Development
+              Advocate
             </p>
 
             <blockquote className="border-l border-[#C5A880] pl-3 py-0.5 text-xs text-zinc-400 italic font-light">

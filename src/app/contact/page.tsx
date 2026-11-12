@@ -93,8 +93,9 @@ export default function ContactPage() {
                 <h2 className="text-base sm:text-lg font-medium text-white font-sans uppercase tracking-wide">
                   Chibuike Godwin Marvellous
                 </h2>
-                <p className="text-xs text-zinc-400 font-light mt-1">
-                  Brand Strategist &amp; Visual Communications Designer
+                <p className="text-xs text-zinc-400 font-light mt-1.5 leading-relaxed">
+                  Creative Director | Brand Strategist | Special Adviser to the President on Media,
+                  Technology &amp; Innovation, IHRPS Nigeria | Digital Literacy &amp; Youth Development Advocate
                 </p>
               </div>
 
