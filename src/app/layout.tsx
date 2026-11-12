@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Chibuike Godwin Marvellous", url: "https://mharvy.com.ng" }],
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
   openGraph: {
     title: "Chibuike Godwin Marvellous | Top 1% of the world's 1% - theCreative Mharvy",

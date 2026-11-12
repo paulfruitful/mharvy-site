@@ -36,12 +36,13 @@ export function Footer() {
           {/* Brand Dossier Column */}
           <div className="lg:col-span-5 flex flex-col gap-5">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-8 h-8 rounded border border-white/15 flex items-center justify-center bg-black overflow-hidden flex-shrink-0">
+              <div className="relative w-8 h-8 flex items-center justify-center flex-shrink-0">
                 <Image
-                  src="/favicon.png"
+                  src="/logo/My%20Creative%20Mharvy%20Sub%20Secondary%20Logo.svg"
                   alt="theCreative Mharvy Logo"
-                  width={24}
-                  height={24}
+                  width={32}
+                  height={32}
+                  unoptimized
                   className="object-contain"
                 />
               </div>

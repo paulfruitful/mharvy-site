@@ -55,13 +55,14 @@ export function SiteLoader() {
       <div className="relative flex flex-col items-center justify-center text-center z-10 px-6">
         
         {/* Logo at the center */}
-        <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 mb-6 bg-stone-900 shadow-[0_0_24px_rgba(255,255,255,0.25)] flex items-center justify-center">
+        <div className="relative w-24 h-24 sm:w-28 sm:h-28 mb-6 flex items-center justify-center drop-shadow-[0_0_24px_rgba(255,255,255,0.2)]">
           <Image
-            src="/favicon.png"
+            src="/logo/My%20Creative%20Mharvy%20Sub%20Main%20Logo.svg"
             alt="theCreative Mharvy Logo"
             fill
+            unoptimized
             priority
-            className="object-contain p-1 animate-pulse"
+            className="object-contain animate-pulse"
           />
         </div>
 

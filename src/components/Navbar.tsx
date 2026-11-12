@@ -60,11 +60,12 @@ export function Navbar() {
           className="group flex items-center gap-3.5 transition-transform hover:opacity-85"
           aria-label="theCreative Mharvy — Home"
         >
-          <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-lg overflow-hidden border border-white/20 flex items-center justify-center flex-shrink-0 bg-stone-900 shadow-sm">
+          <div className="relative w-9 h-6 sm:w-10 sm:h-7 flex items-center justify-center flex-shrink-0">
             <Image
-              src="/favicon.png"
+              src="/logo/My%20Creative%20Mharvy%20Secondary%20Logo.svg"
               alt="theCreative Mharvy Logo"
               fill
+              unoptimized
               className="object-contain"
               priority
             />
