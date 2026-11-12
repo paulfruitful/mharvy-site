@@ -54,18 +54,18 @@ export function Navbar() {
     >
       <div className="relative max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-14 h-16 sm:h-20 flex items-center justify-between">
         
-        {/* Left: Vintage Monogram Seal & Classic Editorial Wordmark */}
+        {/* Left: Favicon Logo & Classic Editorial Wordmark */}
         <Link
           href="/"
           className="group flex items-center gap-3.5 transition-transform hover:opacity-85"
           aria-label="theCreative Mharvy — Home"
         >
-          <div className="relative w-9 sm:w-11 h-6 sm:h-7 flex items-center justify-center">
+          <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-lg overflow-hidden border border-white/20 flex items-center justify-center flex-shrink-0 bg-stone-900 shadow-sm">
             <Image
-              src="/mharvy-monogram-white.png"
-              alt="theCreative Mharvy"
+              src="/favicon.png"
+              alt="theCreative Mharvy Logo"
               fill
-              className="object-contain filter transition-all drop-shadow-[0_2px_8px_rgba(255,255,255,0.25)]"
+              className="object-contain"
               priority
             />
           </div>
