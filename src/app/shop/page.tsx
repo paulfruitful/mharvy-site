@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   ShoppingBag,
   ExternalLink,
@@ -88,46 +89,85 @@ export default function ShopPage() {
             {products.map((product) => (
               <div
                 key={product.id}
-                className="group relative border border-white/10 hover:border-white/30 bg-white/[0.01] hover:bg-white/[0.02] p-8 flex flex-col justify-between transition-all duration-300"
+                className="group relative border border-white/10 hover:border-white/30 bg-white/[0.01] hover:bg-white/[0.02] flex flex-col justify-between transition-all duration-300 overflow-hidden"
               >
                 <EditorialCornerCrosshairs />
 
-                {/* Top Section */}
-                <div className="space-y-6">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-mono">
-                      {product.badge}
-                    </span>
-                    <span className="text-xs font-mono text-zinc-400">
-                      {formatPrice(product.priceNGN, product.priceUSD)}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="text-sm font-normal uppercase tracking-wider text-white group-hover:text-[#C5A880] transition-colors leading-snug">
-                      {product.title}
-                    </h3>
-                    <p className="text-xs text-zinc-400 mt-3 font-light leading-relaxed">
-                      {product.tagline}
-                    </p>
-                  </div>
-
-                  {/* Highlights */}
-                  <div className="pt-4 border-t border-white/5 space-y-2">
-                    {product.features.slice(0, 3).map((feat, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-2 text-[11px] text-zinc-400 font-light"
-                      >
-                        <Check className="w-3 h-3 text-[#C5A880] flex-shrink-0 mt-0.5" />
-                        <span className="line-clamp-2">{feat}</span>
+                {/* Top Visual Plate */}
+                <div>
+                  <div
+                    onClick={() => setSelectedProduct(product)}
+                    className="relative aspect-[4/3] w-full overflow-hidden border-b border-white/10 bg-black cursor-pointer"
+                  >
+                    {product.image ? (
+                      <>
+                        <Image
+                          src={product.image}
+                          alt={product.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none" />
+                      </>
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-zinc-950/80">
+                        <div className="relative w-16 h-16 opacity-60 group-hover:opacity-90 transition-opacity">
+                          <Image
+                            src="/logo/My%20Creative%20Mharvy%20Sub%20Main%20Logo.svg"
+                            alt={product.title}
+                            fill
+                            unoptimized
+                            className="object-contain"
+                          />
+                        </div>
+                        <span className="text-[9px] font-mono tracking-[0.25em] text-white/35 uppercase">
+                          Archival Signature Piece
+                        </span>
                       </div>
-                    ))}
+                    )}
+                  </div>
+
+                  {/* Top Section */}
+                  <div className="p-8 pb-0 space-y-6">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-mono">
+                        {product.badge}
+                      </span>
+                      <span className="text-xs font-mono text-zinc-400">
+                        {formatPrice(product.priceNGN, product.priceUSD)}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3
+                        onClick={() => setSelectedProduct(product)}
+                        className="text-sm font-normal uppercase tracking-wider text-white group-hover:text-[#C5A880] transition-colors leading-snug cursor-pointer"
+                      >
+                        {product.title}
+                      </h3>
+                      <p className="text-xs text-zinc-400 mt-3 font-light leading-relaxed">
+                        {product.tagline}
+                      </p>
+                    </div>
+
+                    {/* Highlights */}
+                    <div className="pt-4 border-t border-white/5 space-y-2">
+                      {product.features.slice(0, 3).map((feat, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-start gap-2 text-[11px] text-zinc-400 font-light"
+                        >
+                          <Check className="w-3 h-3 text-[#C5A880] flex-shrink-0 mt-0.5" />
+                          <span className="line-clamp-2">{feat}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 {/* Bottom Actions */}
-                <div className="pt-8 mt-6 border-t border-white/10 space-y-3">
+                <div className="p-8 pt-6 mt-6 border-t border-white/10 space-y-3">
                   <div className="flex items-center justify-between text-[11px] text-zinc-500 font-mono">
                     <span>Format</span>
                     <span className="text-zinc-400 text-right line-clamp-1 max-w-[180px]">

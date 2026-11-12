@@ -426,21 +426,57 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {featuredProducts.map((product, idx) => (
               <Reveal key={product.id} delay={idx * 90}>
-                <div className="h-full group p-6 sm:p-7 bg-black/80 backdrop-blur-xs border border-white/10 hover:border-white/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between">
+                <div className="h-full group bg-black/80 backdrop-blur-xs border border-white/10 hover:border-white/40 hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between overflow-hidden">
                   <div>
-                    <h3
+                    {/* Blended Visual Plate */}
+                    <div
                       onClick={() => setSelectedProduct(product)}
-                      className="text-sm font-medium text-white hover:underline cursor-pointer font-sans mb-2"
+                      className="relative aspect-[4/3] w-full overflow-hidden border-b border-white/10 bg-black cursor-pointer"
                     >
-                      {product.title}
-                    </h3>
+                      {product.image ? (
+                        <>
+                          <Image
+                            src={product.image}
+                            alt={product.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none" />
+                        </>
+                      ) : (
+                        <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-zinc-950/80">
+                          <div className="relative w-16 h-16 opacity-60 group-hover:opacity-90 transition-opacity">
+                            <Image
+                              src="/logo/My%20Creative%20Mharvy%20Sub%20Main%20Logo.svg"
+                              alt={product.title}
+                              fill
+                              unoptimized
+                              className="object-contain"
+                            />
+                          </div>
+                          <span className="text-[9px] font-mono tracking-[0.25em] text-white/35 uppercase">
+                            Archival Signature Piece
+                          </span>
+                        </div>
+                      )}
+                    </div>
 
-                    <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-2">
-                      {product.tagline}
-                    </p>
+                    <div className="p-6 sm:p-7 pb-0">
+                      <h3
+                        onClick={() => setSelectedProduct(product)}
+                        className="text-sm font-medium text-white hover:underline cursor-pointer font-sans mb-2"
+                      >
+                        {product.title}
+                      </h3>
+
+                      <p className="text-xs text-zinc-400 font-light leading-relaxed line-clamp-2">
+                        {product.tagline}
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+                  <div className="p-6 sm:p-7 pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
                     <span className="text-xs font-mono font-medium text-white">
                       {formatPrice(product.priceNGN, product.priceUSD)}
                     </span>

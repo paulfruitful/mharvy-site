@@ -41,6 +41,7 @@ export interface Product {
   reviewCount: number;
   isBestseller?: boolean;
   isPhysical?: boolean;
+  image?: string;
   coverGradient: string;
   badge: string;
   format: string;
