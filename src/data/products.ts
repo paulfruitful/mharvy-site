@@ -21,6 +21,7 @@ export const products: Product[] = [
     reviewCount: 44,
     isBestseller: true,
     isPhysical: true,
+    image: "/merch/cgm-1st-edition-cap.png",
     coverGradient: "from-zinc-900 to-black",
     badge: "Limited Edition",
     format: "Physical Item (Worldwide Express Shipping)",

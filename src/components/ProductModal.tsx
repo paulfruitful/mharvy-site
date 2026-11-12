@@ -39,17 +39,20 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
 
       <div className="flex min-h-full items-center justify-center p-4 sm:p-6 text-center">
         <div className="w-full max-w-xl transform overflow-hidden bg-black border border-white/15 text-left shadow-2xl relative my-8">
-          {/* Optional Book Cover Banner */}
+          {/* Optional Product Visual Banner */}
           {product.image && (
             <div className="relative h-56 sm:h-64 w-full bg-black border-b border-white/10 overflow-hidden">
+              {product.isPhysical && (
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(255,255,255,0.10),transparent_68%)] pointer-events-none" />
+              )}
               <Image
                 src={product.image}
                 alt={product.title}
                 fill
                 sizes="(max-width: 640px) 100vw, 576px"
-                className="object-cover object-center"
+                className={`${product.isPhysical ? "object-contain p-3" : "object-cover"} object-center`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent pointer-events-none" />
             </div>
           )}
 

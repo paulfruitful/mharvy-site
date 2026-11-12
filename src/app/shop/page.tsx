@@ -101,14 +101,19 @@ export default function ShopPage() {
                   >
                     {product.image ? (
                       <>
+                        {product.isPhysical && (
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(255,255,255,0.09),transparent_68%)] pointer-events-none" />
+                        )}
                         <Image
                           src={product.image}
                           alt={product.title}
                           fill
                           sizes="(max-width: 768px) 100vw, 33vw"
-                          className="object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                          className={`${
+                            product.isPhysical ? "object-contain p-2" : "object-cover"
+                          } object-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105`}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
                       </>
                     ) : (
                       <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-zinc-950/80">
