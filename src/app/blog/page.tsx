@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, X, Clock, Calendar } from "lucide-react";
-import { posts } from "@/data/posts";
+import { ArrowRight, X } from "lucide-react";
+import { posts as fallbackPosts } from "@/data/posts";
 import { BlogPost } from "@/types";
+import { fetchPublishedPosts } from "@/lib/blog";
+import { BlogArticlePreview } from "@/components/BlogArticlePreview";
 import {
   SectionRibbonWave,
   EditorialCornerCrosshairs,
@@ -13,7 +15,24 @@ import {
 import { Reveal } from "@/components/Reveal";
 
 export default function BlogPage() {
+  const [articles, setArticles] = useState<BlogPost[]>(fallbackPosts);
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    fetchPublishedPosts().then((loaded) => {
+      if (!active) return;
+      setArticles(loaded);
+      const hashSlug = window.location.hash.replace(/^#/, "").trim();
+      if (hashSlug) {
+        const match = loaded.find((p) => p.slug === hashSlug);
+        if (match) setSelectedPost(match);
+      }
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-black text-[#F5F2EB] font-poppins selection:bg-white selection:text-black">
@@ -66,9 +85,10 @@ export default function BlogPage() {
           
           <Reveal>
             <div className="divide-y divide-white/10 border-y border-white/10">
-              {posts.map((post) => (
+              {articles.map((post) => (
                 <div
                   key={post.id}
+                  id={post.slug}
                   onClick={() => setSelectedPost(post)}
                   className="py-7 sm:py-8 flex flex-col md:flex-row md:items-center justify-between gap-4 group cursor-pointer hover:bg-zinc-950 px-4 -mx-4 transition-colors"
                 >
@@ -130,60 +150,31 @@ export default function BlogPage() {
 
           <div className="flex min-h-full items-center justify-center p-4 sm:p-6 text-center">
             <div className="w-full max-w-2xl transform overflow-hidden bg-black border border-white/15 text-left p-6 sm:p-10 relative my-8 shadow-2xl">
-              
-              <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
-                <span className="text-[10px] font-mono tracking-widest text-white/40 uppercase">
-                  Published // {selectedPost.publishDate} &bull; {selectedPost.readTime}
-                </span>
+              <button
+                onClick={() => setSelectedPost(null)}
+                className="absolute top-6 right-6 p-1 text-zinc-500 hover:text-white transition-colors z-10"
+                aria-label="Close"
+              >
+                <X className="w-4 h-4" />
+              </button>
 
-                <button
-                  onClick={() => setSelectedPost(null)}
-                  className="p-1 text-zinc-500 hover:text-white transition-colors"
-                  aria-label="Close"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
+              <BlogArticlePreview
+                article={{
+                  title: selectedPost.title,
+                  excerpt: selectedPost.excerpt,
+                  contentMarkdown:
+                    selectedPost.rawContent ?? selectedPost.content.join("\n\n"),
+                  coverImage: selectedPost.coverImage,
+                  category: selectedPost.category,
+                  publishDate: selectedPost.publishDate,
+                  readTime: selectedPost.readTime,
+                  keyTakeaways: selectedPost.keyTakeaways || [],
+                  tags: selectedPost.tags || [],
+                  status: selectedPost.status,
+                }}
+              />
 
-              <h3 className="text-lg sm:text-xl font-normal text-white uppercase font-sans mb-4 leading-tight">
-                {selectedPost.title}
-              </h3>
-
-              <p className="text-xs text-zinc-300 italic mb-6 pb-6 border-b border-white/10">
-                &ldquo;{selectedPost.excerpt}&rdquo;
-              </p>
-
-              <div className="space-y-4 mb-8">
-                {selectedPost.content.map((p, idx) => (
-                  <p
-                    key={idx}
-                    className="text-xs text-zinc-400 font-light leading-relaxed"
-                  >
-                    {p}
-                  </p>
-                ))}
-              </div>
-
-              {selectedPost.keyTakeaways && (
-                <div className="p-5 bg-zinc-950 border border-white/10 mb-6">
-                  <span className="text-[10px] font-mono tracking-widest text-white/50 uppercase block mb-3">
-                    Core Insights &amp; Takeaways
-                  </span>
-                  <ul className="space-y-2">
-                    {selectedPost.keyTakeaways.map((takeaway, tIdx) => (
-                      <li
-                        key={tIdx}
-                        className="text-xs text-zinc-400 font-light flex items-start gap-2"
-                      >
-                        <span className="text-white/40 text-xs mt-0.5">&bull;</span>
-                        <span>{takeaway}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <div className="pt-4 border-t border-white/10 flex justify-end">
+              <div className="pt-4 mt-6 border-t border-white/10 flex justify-end">
                 <button
                   onClick={() => setSelectedPost(null)}
                   className="px-5 py-2 border border-white/30 hover:border-white text-white hover:bg-white hover:text-black text-[10px] font-mono uppercase tracking-wider transition-colors"
@@ -191,7 +182,6 @@ export default function BlogPage() {
                   Close Document
                 </button>
               </div>
-
             </div>
           </div>
         </div>

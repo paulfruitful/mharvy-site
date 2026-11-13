@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -12,7 +12,8 @@ import {
 import { projects } from "@/data/projects";
 import { products } from "@/data/products";
 import { posts } from "@/data/posts";
-import { Project, Product } from "@/types";
+import { fetchPublishedPosts } from "@/lib/blog";
+import { BlogPost, Project, Product } from "@/types";
 import { useCart } from "@/context/CartContext";
 import { ProjectModal } from "@/components/ProjectModal";
 import { ProductModal } from "@/components/ProductModal";
@@ -53,7 +54,19 @@ export default function HomePage() {
 
   const featuredProjects = projects.slice(0, 4);
   const featuredProducts = products.slice(0, 3);
-  const featuredPosts = posts.slice(0, 5);
+  const [featuredPosts, setFeaturedPosts] = useState<BlogPost[]>(posts.slice(0, 5));
+
+  useEffect(() => {
+    let active = true;
+    fetchPublishedPosts().then((loaded) => {
+      if (active && loaded.length > 0) {
+        setFeaturedPosts(loaded.slice(0, 5));
+      }
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-black text-[#F5F2EB] font-poppins selection:bg-white selection:text-black">

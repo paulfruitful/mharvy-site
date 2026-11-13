@@ -134,6 +134,9 @@ export function Footer() {
               <li>
                 <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
               </li>
+              <li>
+                <Link href="/admin" className="hover:text-white text-zinc-500 transition-colors">Admin Studio</Link>
+              </li>
             </ul>
           </div>
 

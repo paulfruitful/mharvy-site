@@ -60,10 +60,15 @@ export interface BlogPost {
   category: string;
   excerpt: string;
   content: string[];
+  rawContent?: string;
+  coverImage?: string | null;
   keyTakeaways: string[];
   publishDate: string;
   readTime: string;
   tags: string[];
+  status?: "draft" | "published";
+  updatedAt?: string;
+  publishedAt?: string | null;
 }
 
 export interface VideoItem {
